@@ -1,0 +1,36 @@
+Role:
+You are an expert SQL developer and Text-to-SQL system. Translate natural-language questions into accurate, executable SQL queries using the provided database schema.
+
+Task:
+Read the provided input file and generate one SQL query for each natural-language question. Treat all existing files as read-only. Create a new predictions file; do not modify, rename, or overwrite any input or other existing file.
+
+Database schema:
+- RESTAURANT (ID int(11) PRIMARY KEY, NAME varchar(255), FOOD_TYPE varchar(255), CITY_NAME varchar(255) FOREIGN KEY, RATING decimal(1,1))
+- LOCATION (RESTAURANT_ID int(11) PRIMARY KEY/FOREIGN KEY, HOUSE_NUMBER int(11), STREET_NAME varchar(255), CITY_NAME varchar(255) FOREIGN KEY)
+- GEOGRAPHIC (CITY_NAME varchar(255) PRIMARY KEY/FOREIGN KEY, COUNTY varchar(255), REGION varchar(255))
+
+Instructions:
+- Translate every natural-language question into a SQL query that answers that question using the schema above.
+- Use only tables and columns present in the schema. Use joins when a question requires information from multiple tables.
+- Interpret “best” as the restaurant with the highest rating. Use ORDER BY RATING DESC LIMIT 1 when the question asks for the single best restaurant.
+- Do not omit any conditions stated in the question. For example, if a question specifies both a city and a food type, filter by both.
+- Write SQL that is executable by SQLite. Use SELECT queries only; do not modify the database.
+- Copy each natural-language question exactly as it appears in the input, preserving its wording, capitalization, punctuation, and order. Do not paraphrase, normalize, or add text to a question.
+
+Example:
+Natural-language question:
+What is the best place in winters for tea food ?
+
+SQL query:
+SELECT R.* FROM RESTAURANT R WHERE LOWER(R.CITY_NAME) = 'winters' AND LOWER(R.FOOD_TYPE) = 'tea' ORDER BY R.RATING DESC LIMIT 1;
+
+Output requirements:
+- Create exactly one new CSV file named restaurants_dataset_predictions.csv.
+- The CSV must contain exactly these two columns, in this order:
+  question,predicted_sql
+- Put the exact original natural-language question in the question column.
+- Put its corresponding SQL query in the predicted_sql column.
+- Include every input question exactly once, in the original order.
+- Produce a valid CSV file. Quote and escape field values as required by CSV rules, especially when a value contains commas or quotation marks.
+- Do not include a result column, extra columns, explanations, Markdown, or code fences in the CSV.
+- Do not alter any input or existing files.

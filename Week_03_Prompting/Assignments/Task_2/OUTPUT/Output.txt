@@ -1,0 +1,50 @@
+CO-STAR
+Čas: 32 steps za 3m 5s
+Výsledok: 43/155 správnych predikcií — presnosť 27,74 %
+Metadata:
+ession: copilotcli:/ed60e912-17d2-4455-9dd7-365afe98c96a
+openLink: agent-host-session://copilotcli/ed60e912-17d2-4455-9dd7-365afe98c96a
+workingDirectory: file:///c%3A/Users/Luk%C3%A1%C5%A1/Documents/GitHub/AI4SE_Labs_2026/Week_03_Prompting/Ai%20workspace
+project: AI4SE_Labs_2026
+projectUri: file:///c%3A/Users/Luk%C3%A1%C5%A1/Documents/GitHub/AI4SE_Labs_2026
+createdAt: 2026-10-14T17:48:31.525Z
+modifiedAt: 2026-10-14T18:13:11.321Z
+git branch: main
+GitHub repo: OgimanW/AI4SE_Labs_2026
+
+RTF:
+Čas: 49 steps in 10m 50s
+Výsledok: 27/155 správnych predikcií — presnosť 17,42 %
+Metadata:
+session: copilotcli:/7823bcaf-25d9-4457-8b3f-33e066c8a538
+openLink: agent-host-session://copilotcli/7823bcaf-25d9-4457-8b3f-33e066c8a538
+workingDirectory: file:///c%3A/Users/Luk%C3%A1%C5%A1/Documents/GitHub/AI4SE_Labs_2026/Week_03_Prompting/Ai%20workspace
+project: AI4SE_Labs_2026
+projectUri: file:///c%3A/Users/Luk%C3%A1%C5%A1/Documents/GitHub/AI4SE_Labs_2026
+createdAt: 2026-10-14T17:31:43.428Z
+modifiedAt: 2026-10-14T18:09:51.252Z
+git branch: main
+GitHub repo: OgimanW/AI4SE_Labs_2026
+
+RACE:
+Čas:21 steps in 3m 45s
+Výsledok: 43/155 správnych predikcií — presnosť 27,74%.
+Metadata:
+session: copilotcli:/a7812aa4-e74c-4af0-86e4-e8def05554d3
+openLink: agent-host-session://copilotcli/a7812aa4-e74c-4af0-86e4-e8def05554d3
+workingDirectory: file:///c%3A/Users/Luk%C3%A1%C5%A1/Documents/GitHub/AI4SE_Labs_2026/Week_03_Prompting/Ai%20workspace
+project: AI4SE_Labs_2026
+projectUri: file:///c%3A/Users/Luk%C3%A1%C5%A1/Documents/GitHub/AI4SE_Labs_2026
+createdAt: 2026-10-14T17:20:13.030Z
+modifiedAt: 2026-10-14T18:12:04.199Z
+git branch: main
+GitHub repo: OgimanW/AI4SE_Labs_2026
+
+
+REPORT:
+Zda sa ze RACE a CO-STAR sa darilo trochu lepsie ako RTF napriek tomu ze RTF si zobral skoro 3x viac času.
+Zaroveň je to zaujimavé že ani jeden to nespravil na viac ako 30%.
+
+Vsetky prompty poli spustene v samostatnom VS Code kde mali pristupne len subory:
+restaurants_dataset.csv
+restaurants-schema.csv
