@@ -1,0 +1,13 @@
+SUPPORT TEAM SURVEY - SUMMARY (May 2025)
+
+Respondents: 9 support agents
+
+Q1. Biggest pain points
+ - 7 of 9: we cannot see a rider's ride history when they call us; we need it in the
+   admin console to answer complaints.
+ - 5 of 9: refunds take too long because we must email finance; support should be able
+   to issue refunds directly in the admin console.
+
+Q2. Other comments
+ - The admin console should load a rider profile in under 2 seconds.
+ - One agent asked for a better parking spot near the office.

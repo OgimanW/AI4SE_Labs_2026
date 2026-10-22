@@ -1,0 +1,3092 @@
+{
+  "input_dir": "data/corpus",
+  "generated": "2026-10-22T15:35:54",
+  "models": {
+    "extractor": "gpt-5-mini",
+    "consolidator": "gpt-5.6-luna",
+    "writer": "gpt-5-mini",
+    "critic": "gpt-6-luna"
+  },
+  "usage_per_node": {
+    "extractor": {
+      "model": "gpt-5-mini",
+      "calls": 22,
+      "failed": 0,
+      "input_tokens": 46219,
+      "output_tokens": 147720
+    },
+    "consolidator": {
+      "model": "gpt-5.6-luna",
+      "calls": 12,
+      "failed": 0,
+      "input_tokens": 129134,
+      "output_tokens": 54905
+    },
+    "writer": {
+      "model": "gpt-5-mini",
+      "calls": 23,
+      "failed": 0,
+      "input_tokens": 58884,
+      "output_tokens": 68361
+    },
+    "critic": {
+      "model": "gpt-6-luna",
+      "calls": 3,
+      "failed": 0,
+      "input_tokens": 84092,
+      "output_tokens": 20598
+    }
+  },
+  "rework_loops": 2,
+  "rounds": [
+    {
+      "round": 1,
+      "issues": [
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R009"
+          ],
+          "text": "R009 uses 'branch' instead of 'Library location'; uses 'branch manager' instead of 'Library manager'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R011"
+          ],
+          "text": "R011 uses 'capacity status' instead of 'Collection capacity'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R021"
+          ],
+          "text": "R021 uses 'system-wide' instead of 'Consortium'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R023"
+          ],
+          "text": "R023 uses 'staff user' instead of 'Staff member'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R024"
+          ],
+          "text": "R024 uses 'staff user' instead of 'Staff member'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R025"
+          ],
+          "text": "R025 uses 'staff user' instead of 'Staff member'; uses 'transfer utility' instead of 'Item transfer'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R026"
+          ],
+          "text": "R026 uses 'staff user' instead of 'Staff member'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R027"
+          ],
+          "text": "R027 uses 'staff user' instead of 'Staff member'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R028"
+          ],
+          "text": "R028 uses 'staff user' instead of 'Staff member'; uses 'transferred item' instead of 'In-transit item'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R029"
+          ],
+          "text": "R029 uses 'staff user' instead of 'Staff member'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R030"
+          ],
+          "text": "R030 uses 'staff user' instead of 'Staff member'; uses 'Local System Administrator' instead of 'Local administrator'; uses 'Global System Administrator' instead of 'Global administrator'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R031"
+          ],
+          "text": "R031 uses 'staff user' instead of 'Staff member'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R032"
+          ],
+          "text": "R032 uses 'staff user' instead of 'Staff member'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R035"
+          ],
+          "text": "R035 uses 'staff user' instead of 'Staff member'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R037"
+          ],
+          "text": "R037 uses 'staff user' instead of 'Staff member'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R039"
+          ],
+          "text": "R039 uses 'system-wide' instead of 'Consortium'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R040"
+          ],
+          "text": "R040 uses 'branch' instead of 'Library location'; uses 'staff user' instead of 'Staff member'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R051"
+          ],
+          "text": "R051 uses 'branch' instead of 'Library location'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R061"
+          ],
+          "text": "R061 uses 'OPAC' instead of 'Online Public Access Catalog'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R063"
+          ],
+          "text": "R063 uses 'Local System Administrator' instead of 'Local administrator'; uses 'Global System Administrator' instead of 'Global administrator'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R065"
+          ],
+          "text": "R065 uses 'system-wide' instead of 'Consortium'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R067"
+          ],
+          "text": "R067 uses 'OPAC' instead of 'Online Public Access Catalog'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R071"
+          ],
+          "text": "R071 uses 'Local System Administrator' instead of 'Local administrator'; uses 'Global System Administrator' instead of 'Global administrator'; uses 'financial activity' instead of 'Financial transaction'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R072"
+          ],
+          "text": "R072 uses 'Local System Administrator' instead of 'Local administrator'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R074"
+          ],
+          "text": "R074 uses 'system-wide' instead of 'Consortium'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R075"
+          ],
+          "text": "R075 uses 'system-wide' instead of 'Consortium'; uses 'Global System Administrator' instead of 'Global administrator'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R079"
+          ],
+          "text": "R079 uses 'predefined report' instead of 'Canned report'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R081"
+          ],
+          "text": "R081 uses 'staff user' instead of 'Staff member'; uses 'Local System Administrator' instead of 'Local administrator'; uses 'Global System Administrator' instead of 'Global administrator'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R082"
+          ],
+          "text": "R082 uses 'staff user' instead of 'Staff member'; uses 'Local System Administrator' instead of 'Local administrator'; uses 'Global System Administrator' instead of 'Global administrator'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R083"
+          ],
+          "text": "R083 uses 'staff user' instead of 'Staff member'; uses 'Local System Administrator' instead of 'Local administrator'; uses 'Global System Administrator' instead of 'Global administrator'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R084"
+          ],
+          "text": "R084 uses 'staff user' instead of 'Staff member'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R085"
+          ],
+          "text": "R085 uses 'staff user' instead of 'Staff member'; uses 'Local System Administrator' instead of 'Local administrator'; uses 'Global System Administrator' instead of 'Global administrator'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R087"
+          ],
+          "text": "R087 uses 'staff user' instead of 'Staff member'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R088"
+          ],
+          "text": "R088 uses 'staff user' instead of 'Staff member'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R089"
+          ],
+          "text": "R089 uses 'staff user' instead of 'Staff member'; uses 'request' instead of 'Hold'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R090"
+          ],
+          "text": "R090 uses 'staff user' instead of 'Staff member'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R091"
+          ],
+          "text": "R091 uses 'staff user' instead of 'Staff member'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R092"
+          ],
+          "text": "R092 uses 'staff user' instead of 'Staff member'; uses 'Local System Administrator' instead of 'Local administrator'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R093"
+          ],
+          "text": "R093 uses 'staff user' instead of 'Staff member'; uses 'transferred item' instead of 'In-transit item'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R094"
+          ],
+          "text": "R094 uses 'staff user' instead of 'Staff member'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R095"
+          ],
+          "text": "R095 uses 'staff user' instead of 'Staff member'; uses 'Local System Administrator' instead of 'Local administrator'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R096"
+          ],
+          "text": "R096 uses 'staff user' instead of 'Staff member'; uses 'Local System Administrator' instead of 'Local administrator'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R097"
+          ],
+          "text": "R097 uses 'staff user' instead of 'Staff member'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R098"
+          ],
+          "text": "R098 uses 'staff user' instead of 'Staff member'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R099"
+          ],
+          "text": "R099 uses 'staff user' instead of 'Staff member'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R100"
+          ],
+          "text": "R100 uses 'staff user' instead of 'Staff member'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R109"
+          ],
+          "text": "R109 uses 'staff user' instead of 'Staff member'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R110"
+          ],
+          "text": "R110 uses 'Local System Administrator' instead of 'Local administrator'; uses 'Global System Administrator' instead of 'Global administrator'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R117"
+          ],
+          "text": "R117 uses 'request' instead of 'Hold'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R121"
+          ],
+          "text": "R121 uses 'staff user' instead of 'Staff member'; uses 'financial activity' instead of 'Financial transaction'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R122"
+          ],
+          "text": "R122 uses 'branch' instead of 'Library location'; uses 'branch manager' instead of 'Library manager'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R123"
+          ],
+          "text": "R123 uses 'staff user' instead of 'Staff member'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R124"
+          ],
+          "text": "R124 uses 'facility' instead of 'Library location'; uses 'staff user' instead of 'Staff member'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R125"
+          ],
+          "text": "R125 uses 'branch' instead of 'Library location'; uses 'system-wide' instead of 'Consortium'; uses 'branch manager' instead of 'Library manager'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R127"
+          ],
+          "text": "R127 uses 'staff user' instead of 'Staff member'; uses 'circulation activity' instead of 'Circulation transaction'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R132"
+          ],
+          "text": "R132 uses 'non-cataloged material' instead of 'Uncataloged material'; uses 'circulation activity' instead of 'Circulation transaction'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R134"
+          ],
+          "text": "R134 uses 'branch' instead of 'Library location'; uses 'system-wide' instead of 'Consortium'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R140"
+          ],
+          "text": "R140 uses 'branch' instead of 'Library location'; uses 'system-wide' instead of 'Consortium'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R141"
+          ],
+          "text": "R141 uses 'borrower' instead of 'Patron'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R149"
+          ],
+          "text": "R149 uses 'borrower' instead of 'Patron'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R161"
+          ],
+          "text": "R161 uses 'Local System Administrator' instead of 'Local administrator'; uses 'Global System Administrator' instead of 'Global administrator'; uses 'reporting database' instead of 'Reporting warehouse'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R162"
+          ],
+          "text": "R162 uses 'Local System Administrator' instead of 'Local administrator'; uses 'Global System Administrator' instead of 'Global administrator'; uses 'reporting database' instead of 'Reporting warehouse'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R163"
+          ],
+          "text": "R163 uses 'Local System Administrator' instead of 'Local administrator'; uses 'Global System Administrator' instead of 'Global administrator'; uses 'reporting database' instead of 'Reporting warehouse'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R164"
+          ],
+          "text": "R164 uses 'staff user' instead of 'Staff member'; uses 'Local System Administrator' instead of 'Local administrator'; uses 'Global System Administrator' instead of 'Global administrator'; uses 'bib record' instead of 'Bibliographic record'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R165"
+          ],
+          "text": "R165 uses 'Local System Administrator' instead of 'Local administrator'; uses 'Global System Administrator' instead of 'Global administrator'; uses 'bib record' instead of 'Bibliographic record'; uses 'reporting database' instead of 'Reporting warehouse'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R166"
+          ],
+          "text": "R166 uses 'Local System Administrator' instead of 'Local administrator'; uses 'Global System Administrator' instead of 'Global administrator'; uses 'bib record' instead of 'Bibliographic record'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R167"
+          ],
+          "text": "R167 uses 'Local System Administrator' instead of 'Local administrator'; uses 'Global System Administrator' instead of 'Global administrator'; uses 'reporting database' instead of 'Reporting warehouse'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R168"
+          ],
+          "text": "R168 uses 'Local System Administrator' instead of 'Local administrator'; uses 'Global System Administrator' instead of 'Global administrator'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R169"
+          ],
+          "text": "R169 uses 'Local System Administrator' instead of 'Local administrator'; uses 'Global System Administrator' instead of 'Global administrator'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R170"
+          ],
+          "text": "R170 uses 'Local System Administrator' instead of 'Local administrator'; uses 'Global System Administrator' instead of 'Global administrator'; uses 'reporting database' instead of 'Reporting warehouse'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R171"
+          ],
+          "text": "R171 uses 'Local System Administrator' instead of 'Local administrator'; uses 'Global System Administrator' instead of 'Global administrator'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R172"
+          ],
+          "text": "R172 uses 'Local System Administrator' instead of 'Local administrator'; uses 'Global System Administrator' instead of 'Global administrator'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R173"
+          ],
+          "text": "R173 uses 'branch' instead of 'Library location'; uses 'Local System Administrator' instead of 'Local administrator'; uses 'Global System Administrator' instead of 'Global administrator'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R174"
+          ],
+          "text": "R174 uses 'Local System Administrator' instead of 'Local administrator'; uses 'Global System Administrator' instead of 'Global administrator'; uses 'reporting database' instead of 'Reporting warehouse'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R175"
+          ],
+          "text": "R175 uses 'Local System Administrator' instead of 'Local administrator'; uses 'Global System Administrator' instead of 'Global administrator'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R176"
+          ],
+          "text": "R176 uses 'Local System Administrator' instead of 'Local administrator'; uses 'Global System Administrator' instead of 'Global administrator'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R177"
+          ],
+          "text": "R177 uses 'Local System Administrator' instead of 'Local administrator'; uses 'Global System Administrator' instead of 'Global administrator'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R178"
+          ],
+          "text": "R178 uses 'Local System Administrator' instead of 'Local administrator'; uses 'Global System Administrator' instead of 'Global administrator'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R179"
+          ],
+          "text": "R179 uses 'Local System Administrator' instead of 'Local administrator'; uses 'Global System Administrator' instead of 'Global administrator'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R180"
+          ],
+          "text": "R180 uses 'Local System Administrator' instead of 'Local administrator'; uses 'Global System Administrator' instead of 'Global administrator'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R181"
+          ],
+          "text": "R181 uses 'Local System Administrator' instead of 'Local administrator'; uses 'Global System Administrator' instead of 'Global administrator'; uses 'reporting database' instead of 'Reporting warehouse'; uses 'public catalog' instead of 'Online Public Access Catalog'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R182"
+          ],
+          "text": "R182 uses 'Local System Administrator' instead of 'Local administrator'; uses 'Global System Administrator' instead of 'Global administrator'; uses 'reporting database' instead of 'Reporting warehouse'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R183"
+          ],
+          "text": "R183 uses 'reporting database' instead of 'Reporting warehouse'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R184"
+          ],
+          "text": "R184 uses 'reporting database' instead of 'Reporting warehouse'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R185"
+          ],
+          "text": "R185 uses 'reporting database' instead of 'Reporting warehouse'; uses 'request' instead of 'Hold'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R186"
+          ],
+          "text": "R186 uses 'reporting database' instead of 'Reporting warehouse'; uses 'request' instead of 'Hold'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R187"
+          ],
+          "text": "R187 uses 'Local System Administrator' instead of 'Local administrator'; uses 'Global System Administrator' instead of 'Global administrator'; uses 'reporting database' instead of 'Reporting warehouse'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R188"
+          ],
+          "text": "R188 uses 'Local System Administrator' instead of 'Local administrator'; uses 'Global System Administrator' instead of 'Global administrator'; uses 'reporting database' instead of 'Reporting warehouse'; uses 'transferred item' instead of 'In-transit item'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R189"
+          ],
+          "text": "R189 uses 'Local System Administrator' instead of 'Local administrator'; uses 'Global System Administrator' instead of 'Global administrator'; uses 'reporting database' instead of 'Reporting warehouse'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R190"
+          ],
+          "text": "R190 uses 'reporting database' instead of 'Reporting warehouse'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R191"
+          ],
+          "text": "R191 uses 'Local System Administrator' instead of 'Local administrator'; uses 'reporting database' instead of 'Reporting warehouse'; uses 'request' instead of 'Hold'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R192"
+          ],
+          "text": "R192 uses 'reporting database' instead of 'Reporting warehouse'; uses 'request' instead of 'Hold'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R193"
+          ],
+          "text": "R193 uses 'reporting database' instead of 'Reporting warehouse'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R194"
+          ],
+          "text": "R194 uses 'reporting database' instead of 'Reporting warehouse'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R195"
+          ],
+          "text": "R195 uses 'reporting database' instead of 'Reporting warehouse'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R196"
+          ],
+          "text": "R196 uses 'Local System Administrator' instead of 'Local administrator'; uses 'reporting database' instead of 'Reporting warehouse'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R197"
+          ],
+          "text": "R197 uses 'reporting database' instead of 'Reporting warehouse'; uses 'payment transaction' instead of 'Financial transaction'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R198"
+          ],
+          "text": "R198 uses 'reporting database' instead of 'Reporting warehouse'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R199"
+          ],
+          "text": "R199 uses 'reporting database' instead of 'Reporting warehouse'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R200"
+          ],
+          "text": "R200 uses 'reporting database' instead of 'Reporting warehouse'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R201"
+          ],
+          "text": "R201 uses 'staff user' instead of 'Staff member'; uses 'Local System Administrator' instead of 'Local administrator'; uses 'Global System Administrator' instead of 'Global administrator'; uses 'pre-written report' instead of 'Canned report'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R202"
+          ],
+          "text": "R202 uses 'staff user' instead of 'Staff member'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R203"
+          ],
+          "text": "R203 uses 'staff user' instead of 'Staff member'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R204"
+          ],
+          "text": "R204 uses 'staff user' instead of 'Staff member'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R205"
+          ],
+          "text": "R205 uses 'staff user' instead of 'Staff member'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R206"
+          ],
+          "text": "R206 uses 'staff user' instead of 'Staff member'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R207"
+          ],
+          "text": "R207 uses 'staff user' instead of 'Staff member'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R208"
+          ],
+          "text": "R208 uses 'staff user' instead of 'Staff member'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R209"
+          ],
+          "text": "R209 uses 'staff user' instead of 'Staff member'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R210"
+          ],
+          "text": "R210 uses 'staff user' instead of 'Staff member'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R211"
+          ],
+          "text": "R211 uses 'staff user' instead of 'Staff member'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R212"
+          ],
+          "text": "R212 uses 'staff user' instead of 'Staff member'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R213"
+          ],
+          "text": "R213 uses 'staff user' instead of 'Staff member'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R214"
+          ],
+          "text": "R214 uses 'request' instead of 'Hold'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R215"
+          ],
+          "text": "R215 uses 'staff user' instead of 'Staff member'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R216"
+          ],
+          "text": "R216 uses 'staff user' instead of 'Staff member'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R217"
+          ],
+          "text": "R217 uses 'staff user' instead of 'Staff member'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R218"
+          ],
+          "text": "R218 uses 'staff user' instead of 'Staff member'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R219"
+          ],
+          "text": "R219 uses 'staff user' instead of 'Staff member'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R220"
+          ],
+          "text": "R220 uses 'staff user' instead of 'Staff member'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R225"
+          ],
+          "text": "R225 uses 'financial activity' instead of 'Financial transaction'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R228"
+          ],
+          "text": "R228 uses 'role-based permissions' instead of 'Role-based access control'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R229"
+          ],
+          "text": "R229 uses 'PII' instead of 'Personally identifiable information'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R232"
+          ],
+          "text": "R232 uses 'Local System Administrator' instead of 'Local administrator'; uses 'Global System Administrator' instead of 'Global administrator'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R240"
+          ],
+          "text": "R240 uses 'circulation activity' instead of 'Circulation transaction'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R244"
+          ],
+          "text": "R244 uses 'Local System Administrator' instead of 'Local administrator'; uses 'Global System Administrator' instead of 'Global administrator'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R245"
+          ],
+          "text": "R245 uses 'branch' instead of 'Library location'; uses 'branch capacity' instead of 'Collection capacity'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R247"
+          ],
+          "text": "R247 uses 'branch' instead of 'Library location'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R251"
+          ],
+          "text": "R251 uses 'Local System Administrator' instead of 'Local administrator'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R254"
+          ],
+          "text": "R254 uses 'Local System Administrator' instead of 'Local administrator'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R256"
+          ],
+          "text": "R256 uses 'public catalog' instead of 'Online Public Access Catalog'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R261"
+          ],
+          "text": "R261 uses 'Local System Administrator' instead of 'Local administrator'; uses 'Global System Administrator' instead of 'Global administrator'; uses 'request' instead of 'Hold'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R262"
+          ],
+          "text": "R262 uses 'system-wide' instead of 'Consortium'; uses 'Local System Administrator' instead of 'Local administrator'; uses 'Global System Administrator' instead of 'Global administrator'; uses 'report model' instead of 'Report template'.",
+          "source": "checks"
+        },
+        {
+          "target": "consolidator",
+          "kind": "duplicate",
+          "refs": [
+            "R103",
+            "R104"
+          ],
+          "text": "[duplicate/medium] R103, R104: Both require reporting the percentage of checkouts at a library location that are renewals. R103 includes this same location-level rate in addition to its separate item-level renewal-likelihood estimate.",
+          "source": "critic"
+        },
+        {
+          "target": "consolidator",
+          "kind": "duplicate",
+          "refs": [
+            "R110",
+            "R111"
+          ],
+          "text": "[duplicate/medium] R110, R111: Both require administrators to restrict template edits, specifically preventing edits that expose deleted items while allowing safe changes such as call-number ranges.",
+          "source": "critic"
+        },
+        {
+          "target": "consolidator",
+          "kind": "duplicate",
+          "refs": [
+            "R092",
+            "R094",
+            "R095"
+          ],
+          "text": "[duplicate/medium] R092, R094, R095: R092 already requires reports for long call numbers and bibliographic records without associated items; R094 and R095 separately restate those same report needs.",
+          "source": "critic"
+        },
+        {
+          "target": "consolidator",
+          "kind": "duplicate",
+          "refs": [
+            "R045",
+            "R046"
+          ],
+          "text": "[duplicate/medium] R045, R046: Both require audit records of deletions/purges identifying who performed the action and when. R046 additionally specifies broader deletion details and reporting, but the purge-audit need overlaps.",
+          "source": "critic"
+        },
+        {
+          "target": "consolidator",
+          "kind": "conflict",
+          "refs": [
+            "R077",
+            "R231"
+          ],
+          "text": "[conflict/high] R077, R231: R077 makes badge-swipe login an alternative to username/password authentication, while R231 says cards must not replace individual authentication.",
+          "source": "critic"
+        },
+        {
+          "target": "consolidator",
+          "kind": "conflict",
+          "refs": [
+            "R048",
+            "R215"
+          ],
+          "text": "[conflict/high] R048, R215: R048 permits filtering patron records by demographic criteria, while R215 requires null and blank fields to be included regardless of filtering. A filter that excludes null-valued records cannot satisfy both requirements.",
+          "source": "critic"
+        },
+        {
+          "target": "consolidator",
+          "kind": "out_of_scope",
+          "refs": [
+            "R123"
+          ],
+          "text": "[out_of_scope/medium] R123: Updating fines, charges, and waivers makes the reporting system responsible for changing operational financial records, rather than reading and analyzing enterprise data as scoped.",
+          "source": "critic"
+        },
+        {
+          "target": "consolidator",
+          "kind": "out_of_scope",
+          "refs": [
+            "R177",
+            "R179"
+          ],
+          "text": "[out_of_scope/medium] R177, R179: These requirements cover collecting or reporting voter and voter-registration survey responses, which is unrelated to the stated library management reporting scope.",
+          "source": "critic"
+        },
+        {
+          "target": "writer",
+          "kind": "unclear",
+          "refs": [
+            "R247",
+            "R248"
+          ],
+          "text": "[unclear/medium] R247, R248: These describe organizational responsibilities—supervising a unit and directing library services—rather than capabilities the reporting system can provide. The descriptions only identify report access or use as a possible support.",
+          "source": "critic"
+        },
+        {
+          "target": "writer",
+          "kind": "inconsistent_vocabulary",
+          "refs": [
+            "R040",
+            "R141",
+            "R149",
+            "R021",
+            "R256"
+          ],
+          "text": "[inconsistent_vocabulary/medium] R040, R141, R149, R021, R256: These use glossary synonyms instead of the preferred terms: “branch” for Library location, “borrower” for Patron, “system-wide” for Consortium, and “public catalog” for Online Public Access Catalog.",
+          "source": "critic"
+        },
+        {
+          "target": "writer",
+          "kind": "wrong_priority",
+          "refs": [
+            "R182",
+            "R183"
+          ],
+          "text": "[wrong_priority/medium] R182, R183: Both are Must solely because their statements use “shall.” The priority scale reserves Must for essential, mandated, or core-purpose requirements; the rationales do not establish that these specialized reports meet that threshold.",
+          "source": "critic"
+        }
+      ],
+      "minor_notes": [],
+      "critic_ok": true
+    },
+    {
+      "round": 2,
+      "issues": [
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R011"
+          ],
+          "text": "R011 uses 'capacity status' instead of 'Collection capacity'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R023"
+          ],
+          "text": "R023 uses 'facility' instead of 'Library location'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R028"
+          ],
+          "text": "R028 uses 'transferred item' instead of 'In-transit item'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R029"
+          ],
+          "text": "R029 uses 'transferred item' instead of 'In-transit item'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R031"
+          ],
+          "text": "R031 uses 'request' instead of 'Hold'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R048"
+          ],
+          "text": "R048 uses 'facility' instead of 'Library location'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R061"
+          ],
+          "text": "R061 uses 'OPAC' instead of 'Online Public Access Catalog'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R065"
+          ],
+          "text": "R065 uses 'system-wide' instead of 'Consortium'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R067"
+          ],
+          "text": "R067 uses 'OPAC' instead of 'Online Public Access Catalog'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R071"
+          ],
+          "text": "R071 uses 'financial activity' instead of 'Financial transaction'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R072"
+          ],
+          "text": "R072 uses 'branch' instead of 'Library location'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R074"
+          ],
+          "text": "R074 uses 'system-wide' instead of 'Consortium'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R075"
+          ],
+          "text": "R075 uses 'system-wide' instead of 'Consortium'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R079"
+          ],
+          "text": "R079 uses 'predefined report' instead of 'Canned report'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R093"
+          ],
+          "text": "R093 uses 'request' instead of 'Hold'; uses 'transferred item' instead of 'In-transit item'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R099"
+          ],
+          "text": "R099 uses 'predefined report' instead of 'Canned report'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R117"
+          ],
+          "text": "R117 uses 'request' instead of 'Hold'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R121"
+          ],
+          "text": "R121 uses 'financial activity' instead of 'Financial transaction'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R132"
+          ],
+          "text": "R132 uses 'non-cataloged material' instead of 'Uncataloged material'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R141"
+          ],
+          "text": "R141 uses 'circulation activity' instead of 'Circulation transaction'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R181"
+          ],
+          "text": "R181 uses 'public catalog' instead of 'Online Public Access Catalog'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R188"
+          ],
+          "text": "R188 uses 'branch' instead of 'Library location'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R214"
+          ],
+          "text": "R214 uses 'request' instead of 'Hold'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R217"
+          ],
+          "text": "R217 uses 'system-wide' instead of 'Consortium'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R229"
+          ],
+          "text": "R229 uses 'PII' instead of 'Personally identifiable information'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R232"
+          ],
+          "text": "R232 uses 'system-wide' instead of 'Consortium'; uses 'Local System Administrator' instead of 'Local administrator'; uses 'Global System Administrator' instead of 'Global administrator'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R240"
+          ],
+          "text": "R240 uses 'circulation activity' instead of 'Circulation transaction'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R248"
+          ],
+          "text": "R248 uses 'system-wide' instead of 'Consortium'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R251"
+          ],
+          "text": "R251 uses 'Local System Administrator' instead of 'Local administrator'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R256"
+          ],
+          "text": "R256 uses 'public catalog' instead of 'Online Public Access Catalog'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R262"
+          ],
+          "text": "R262 uses 'facility' instead of 'Library location'; uses 'Local System Administrator' instead of 'Local administrator'; uses 'report model' instead of 'Report template'.",
+          "source": "checks"
+        },
+        {
+          "target": "consolidator",
+          "kind": "duplicate",
+          "refs": [
+            "R001",
+            "R002"
+          ],
+          "text": "[duplicate/medium] R001, R002: R002 repeats R001’s requirement that the Material Volume Report use new acquisitions, on-shelf items, and items out in circulation as its data sources.",
+          "source": "critic"
+        },
+        {
+          "target": "consolidator",
+          "kind": "duplicate",
+          "refs": [
+            "R048",
+            "R049",
+            "R215"
+          ],
+          "text": "[duplicate/medium] R048, R049, R215: These requirements repeat the need to include null or blank values in report results; R049 narrows the same behavior to patron fields.",
+          "source": "critic"
+        },
+        {
+          "target": "consolidator",
+          "kind": "conflict",
+          "refs": [
+            "R048",
+            "R203",
+            "R215"
+          ],
+          "text": "[conflict/high] R048, R203, R215: R048 and R215 require null and blank fields to appear regardless of display choices, while R203 lets users select which data elements to include. The requirements do not reconcile whether a user may omit a field.",
+          "source": "critic"
+        },
+        {
+          "target": "consolidator",
+          "kind": "duplicate",
+          "refs": [
+            "R076",
+            "R108"
+          ],
+          "text": "[duplicate/medium] R076, R108: Both require optional streamlined staff login methods alongside individual credential login; R108 gives badge swipe as an example of the capability described more generally in R076.",
+          "source": "critic"
+        },
+        {
+          "target": "consolidator",
+          "kind": "duplicate",
+          "refs": [
+            "R077",
+            "R231"
+          ],
+          "text": "[duplicate/medium] R077, R231: Both require that streamlined or card-based login must not bypass individual staff authentication.",
+          "source": "critic"
+        },
+        {
+          "target": "consolidator",
+          "kind": "duplicate",
+          "refs": [
+            "R129",
+            "R149"
+          ],
+          "text": "[duplicate/medium] R129, R149: Both require an overdue-items report using a specified days-overdue threshold and including information for patron follow-up.",
+          "source": "critic"
+        },
+        {
+          "target": "consolidator",
+          "kind": "duplicate",
+          "refs": [
+            "R150",
+            "R157"
+          ],
+          "text": "[duplicate/medium] R150, R157: Both require a report listing items classified as long overdue.",
+          "source": "critic"
+        },
+        {
+          "target": "consolidator",
+          "kind": "duplicate",
+          "refs": [
+            "R188",
+            "R190"
+          ],
+          "text": "[duplicate/medium] R188, R190: Both require reports of inter-library loans by Library location from the Reporting warehouse for operational review.",
+          "source": "critic"
+        },
+        {
+          "target": "consolidator",
+          "kind": "out_of_scope",
+          "refs": [
+            "R042",
+            "R044"
+          ],
+          "text": "[out_of_scope/high] R042, R044: These requirements directly change item statuses or delete item and volume records. Those are source-record management actions, whereas the product scope is a reporting and analysis system and excludes management of core cataloging and circulation workflows.",
+          "source": "critic"
+        },
+        {
+          "target": "consolidator",
+          "kind": "out_of_scope",
+          "refs": [
+            "R226"
+          ],
+          "text": "[out_of_scope/high] R226: Updating financial information when a patron pays at a staff desk is a transactional workflow, not read-only reporting and analysis.",
+          "source": "critic"
+        },
+        {
+          "target": "writer",
+          "kind": "inconsistent_vocabulary",
+          "refs": [
+            "R065",
+            "R074",
+            "R075",
+            "R086",
+            "R232",
+            "R248"
+          ],
+          "text": "[inconsistent_vocabulary/medium] R065, R074, R075, R086, R232, R248: These requirements use “system-wide,” which the glossary lists as a synonym to avoid for Consortium.",
+          "source": "critic"
+        },
+        {
+          "target": "writer",
+          "kind": "inconsistent_vocabulary",
+          "refs": [
+            "R072"
+          ],
+          "text": "[inconsistent_vocabulary/medium] R072: “Branch-level” uses a glossary-listed synonym for Library location.",
+          "source": "critic"
+        },
+        {
+          "target": "writer",
+          "kind": "inconsistent_vocabulary",
+          "refs": [
+            "R079"
+          ],
+          "text": "[inconsistent_vocabulary/medium] R079: “Predefined reports” uses a glossary-listed synonym for Canned report.",
+          "source": "critic"
+        },
+        {
+          "target": "writer",
+          "kind": "inconsistent_vocabulary",
+          "refs": [
+            "R132",
+            "R194"
+          ],
+          "text": "[inconsistent_vocabulary/medium] R132, R194: “Non-Cataloged material” and “non-cataloged collections” use glossary-listed synonyms for Uncataloged material.",
+          "source": "critic"
+        },
+        {
+          "target": "writer",
+          "kind": "inconsistent_vocabulary",
+          "refs": [
+            "R232",
+            "R251"
+          ],
+          "text": "[inconsistent_vocabulary/medium] R232, R251: These requirements use “Global System Administrator” or “Local System Administrator,” which the glossary lists as synonyms to avoid for Global administrator and Local administrator.",
+          "source": "critic"
+        }
+      ],
+      "minor_notes": [],
+      "critic_ok": true
+    },
+    {
+      "round": 3,
+      "issues": [
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R011"
+          ],
+          "text": "R011 uses 'capacity status' instead of 'Collection capacity'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R023"
+          ],
+          "text": "R023 uses 'facility' instead of 'Library location'; uses 'staff user' instead of 'Staff member'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R028"
+          ],
+          "text": "R028 uses 'transferred item' instead of 'In-transit item'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R029"
+          ],
+          "text": "R029 uses 'staff user' instead of 'Staff member'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R031"
+          ],
+          "text": "R031 uses 'staff user' instead of 'Staff member'; uses 'request' instead of 'Hold'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R061"
+          ],
+          "text": "R061 uses 'staff user' instead of 'Staff member'; uses 'OPAC' instead of 'Online Public Access Catalog'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R065"
+          ],
+          "text": "R065 uses 'branch' instead of 'Library location'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R067"
+          ],
+          "text": "R067 uses 'OPAC' instead of 'Online Public Access Catalog'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R071"
+          ],
+          "text": "R071 uses 'staff user' instead of 'Staff member'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R072"
+          ],
+          "text": "R072 uses 'Local System Administrator' instead of 'Local administrator'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R075"
+          ],
+          "text": "R075 uses 'Global System Administrator' instead of 'Global administrator'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R076"
+          ],
+          "text": "R076 uses 'staff user' instead of 'Staff member'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R077"
+          ],
+          "text": "R077 uses 'staff user' instead of 'Staff member'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R079"
+          ],
+          "text": "R079 uses 'staff user' instead of 'Staff member'; uses 'predefined report' instead of 'Canned report'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R086"
+          ],
+          "text": "R086 uses 'predefined report' instead of 'Canned report'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R093"
+          ],
+          "text": "R093 uses 'staff user' instead of 'Staff member'; uses 'transferred item' instead of 'In-transit item'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R121"
+          ],
+          "text": "R121 uses 'financial activity' instead of 'Financial transaction'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R129"
+          ],
+          "text": "R129 uses 'staff user' instead of 'Staff member'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R132"
+          ],
+          "text": "R132 uses 'non-cataloged material' instead of 'Uncataloged material'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R214"
+          ],
+          "text": "R214 uses 'request' instead of 'Hold'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R229"
+          ],
+          "text": "R229 uses 'PII' instead of 'Personally identifiable information'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R240"
+          ],
+          "text": "R240 uses 'circulation activity' instead of 'Circulation transaction'.",
+          "source": "checks"
+        },
+        {
+          "target": "writer",
+          "kind": "field_check",
+          "refs": [
+            "R256"
+          ],
+          "text": "R256 uses 'public catalog' instead of 'Online Public Access Catalog'.",
+          "source": "checks"
+        },
+        {
+          "target": "consolidator",
+          "kind": "duplicate",
+          "refs": [
+            "R001",
+            "R004"
+          ],
+          "text": "[duplicate/medium] R001, R004: R001 already requires configurable categories in the Material Volume Report and hold counts by category. R004 restates those same capabilities.",
+          "source": "critic"
+        },
+        {
+          "target": "consolidator",
+          "kind": "duplicate",
+          "refs": [
+            "R001",
+            "R008"
+          ],
+          "text": "[duplicate/medium] R001, R008: R001 already requires the report to show the number of holds as a distinct breakdown; R008 restates that reporting need.",
+          "source": "critic"
+        },
+        {
+          "target": "consolidator",
+          "kind": "duplicate",
+          "refs": [
+            "R133",
+            "R134"
+          ],
+          "text": "[duplicate/medium] R133, R134: Both require a combined total circulation report covering cataloged and uncataloged material. R133 adds a type breakdown, but R134's core combined-report need is already covered.",
+          "source": "critic"
+        },
+        {
+          "target": "consolidator",
+          "kind": "duplicate",
+          "refs": [
+            "R153",
+            "R221"
+          ],
+          "text": "[duplicate/high] R153, R221: Both require a report of deleted items that were the last copy, including the affected library location. These express the same reporting need.",
+          "source": "critic"
+        },
+        {
+          "target": "writer",
+          "kind": "unclear",
+          "refs": [
+            "R048"
+          ],
+          "text": "[unclear/medium] R048: Requiring patron records with null or blank optional values to appear regardless of filtering makes it unclear how demographic and activity filters are meant to apply; null-valued records could bypass the selected criteria.",
+          "source": "critic"
+        },
+        {
+          "target": "writer",
+          "kind": "unclear",
+          "refs": [
+            "R246"
+          ],
+          "text": "[unclear/medium] R246: “Create report content and design services reflected in reports” does not clearly state whether staff design reports or design library services, so the requirement does not match its name unambiguously.",
+          "source": "critic"
+        },
+        {
+          "target": "consolidator",
+          "kind": "out_of_scope",
+          "refs": [
+            "R241"
+          ],
+          "text": "[out_of_scope/medium] R241: The requirement extends beyond reporting and data-quality analysis to grouped or automated changes across item, bibliographic, volume, and patron records. This describes broad operational record modification rather than the stated reporting-system scope.",
+          "source": "critic"
+        },
+        {
+          "target": "writer",
+          "kind": "wrong_priority",
+          "refs": [
+            "R009"
+          ],
+          "text": "[wrong_priority/medium] R009: The rationale cites “need/should” language, but assigns Must by treating that wording as essential. The explicit “should” cue aligns with Should on the stated priority scale, absent a stronger mandatory cue.",
+          "source": "critic"
+        }
+      ],
+      "minor_notes": [
+        "[inconsistent_vocabulary/low] R022: The title uses “Batch Item Transfer Utility,” which the glossary lists as an avoided synonym for Item transfer.",
+        "[inconsistent_vocabulary/low] R011: The description uses “capacity status,” which the glossary lists as an avoided synonym for Collection capacity.",
+        "[inconsistent_vocabulary/low] R086: The description calls these “predefined reports,” a glossary synonym to avoid for Canned report."
+      ],
+      "critic_ok": true
+    }
+  ],
+  "nodes_executed": [
+    {
+      "type": "node",
+      "node": "loader",
+      "time": 1792675122.79,
+      "documents": 20,
+      "chunks": 22,
+      "skipped": []
+    },
+    {
+      "type": "node",
+      "node": "extractor",
+      "time": 1792675178.75,
+      "chunk": "DOC-01#1",
+      "candidates": 18
+    },
+    {
+      "type": "node",
+      "node": "extractor",
+      "time": 1792675185.42,
+      "chunk": "DOC-02#1",
+      "candidates": 22
+    },
+    {
+      "type": "node",
+      "node": "extractor",
+      "time": 1792675172.99,
+      "chunk": "DOC-03#1",
+      "candidates": 12
+    },
+    {
+      "type": "node",
+      "node": "extractor",
+      "time": 1792675178.98,
+      "chunk": "DOC-04#1",
+      "candidates": 27
+    },
+    {
+      "type": "node",
+      "node": "extractor",
+      "time": 1792675176.9,
+      "chunk": "DOC-05#1",
+      "candidates": 15
+    },
+    {
+      "type": "node",
+      "node": "extractor",
+      "time": 1792675165.93,
+      "chunk": "DOC-06#1",
+      "candidates": 16
+    },
+    {
+      "type": "node",
+      "node": "extractor",
+      "time": 1792675167.99,
+      "chunk": "DOC-07#1",
+      "candidates": 15
+    },
+    {
+      "type": "node",
+      "node": "extractor",
+      "time": 1792675172.44,
+      "chunk": "DOC-08#1",
+      "candidates": 13
+    },
+    {
+      "type": "node",
+      "node": "extractor",
+      "time": 1792675163.27,
+      "chunk": "DOC-09#1",
+      "candidates": 22
+    },
+    {
+      "type": "node",
+      "node": "extractor",
+      "time": 1792675187.97,
+      "chunk": "DOC-10#1",
+      "candidates": 44
+    },
+    {
+      "type": "node",
+      "node": "extractor",
+      "time": 1792675237.89,
+      "chunk": "DOC-10#2",
+      "candidates": 77
+    },
+    {
+      "type": "node",
+      "node": "extractor",
+      "time": 1792675254.5,
+      "chunk": "DOC-10#3",
+      "candidates": 114
+    },
+    {
+      "type": "node",
+      "node": "extractor",
+      "time": 1792675207.15,
+      "chunk": "DOC-11#1",
+      "candidates": 23
+    },
+    {
+      "type": "node",
+      "node": "extractor",
+      "time": 1792675226.43,
+      "chunk": "DOC-12#1",
+      "candidates": 24
+    },
+    {
+      "type": "node",
+      "node": "extractor",
+      "time": 1792675226.85,
+      "chunk": "DOC-13#1",
+      "candidates": 15
+    },
+    {
+      "type": "node",
+      "node": "extractor",
+      "time": 1792675247.16,
+      "chunk": "DOC-14#1",
+      "candidates": 71
+    },
+    {
+      "type": "node",
+      "node": "extractor",
+      "time": 1792675240.0,
+      "chunk": "DOC-15#1",
+      "candidates": 26
+    },
+    {
+      "type": "node",
+      "node": "extractor",
+      "time": 1792675246.76,
+      "chunk": "DOC-16#1",
+      "candidates": 22
+    },
+    {
+      "type": "node",
+      "node": "extractor",
+      "time": 1792675243.27,
+      "chunk": "DOC-17#1",
+      "candidates": 28
+    },
+    {
+      "type": "node",
+      "node": "extractor",
+      "time": 1792675262.23,
+      "chunk": "DOC-18#1",
+      "candidates": 36
+    },
+    {
+      "type": "node",
+      "node": "extractor",
+      "time": 1792675253.46,
+      "chunk": "DOC-19#1",
+      "candidates": 36
+    },
+    {
+      "type": "node",
+      "node": "extractor",
+      "time": 1792675400.71,
+      "chunk": "DOC-20#1",
+      "candidates": 43
+    },
+    {
+      "type": "node",
+      "node": "consolidator",
+      "time": 1792675854.86,
+      "candidates": 719,
+      "grounded": 719,
+      "processed": 719,
+      "requirements": 262,
+      "discarded": 30
+    },
+    {
+      "type": "node",
+      "node": "writer",
+      "time": 1792675878.83,
+      "items": 20,
+      "written": 20
+    },
+    {
+      "type": "node",
+      "node": "writer",
+      "time": 1792675881.73,
+      "items": 20,
+      "written": 20
+    },
+    {
+      "type": "node",
+      "node": "writer",
+      "time": 1792675880.39,
+      "items": 20,
+      "written": 20
+    },
+    {
+      "type": "node",
+      "node": "writer",
+      "time": 1792675875.37,
+      "items": 20,
+      "written": 20
+    },
+    {
+      "type": "node",
+      "node": "writer",
+      "time": 1792675883.35,
+      "items": 20,
+      "written": 20
+    },
+    {
+      "type": "node",
+      "node": "writer",
+      "time": 1792675879.93,
+      "items": 20,
+      "written": 20
+    },
+    {
+      "type": "node",
+      "node": "writer",
+      "time": 1792675879.56,
+      "items": 20,
+      "written": 20
+    },
+    {
+      "type": "node",
+      "node": "writer",
+      "time": 1792675875.32,
+      "items": 20,
+      "written": 20
+    },
+    {
+      "type": "node",
+      "node": "writer",
+      "time": 1792675877.1,
+      "items": 20,
+      "written": 20
+    },
+    {
+      "type": "node",
+      "node": "writer",
+      "time": 1792675881.5,
+      "items": 20,
+      "written": 20
+    },
+    {
+      "type": "node",
+      "node": "writer",
+      "time": 1792675904.38,
+      "items": 20,
+      "written": 20
+    },
+    {
+      "type": "node",
+      "node": "writer",
+      "time": 1792675899.69,
+      "items": 20,
+      "written": 20
+    },
+    {
+      "type": "node",
+      "node": "writer",
+      "time": 1792675898.36,
+      "items": 20,
+      "written": 20
+    },
+    {
+      "type": "node",
+      "node": "writer",
+      "time": 1792675884.09,
+      "items": 2,
+      "written": 2
+    },
+    {
+      "type": "node",
+      "node": "checks",
+      "time": 1792675904.58,
+      "requirements": 262,
+      "issues": 133
+    },
+    {
+      "type": "node",
+      "node": "critic",
+      "time": 1792675947.63,
+      "issues": 144,
+      "notes": 0
+    },
+    {
+      "type": "node",
+      "node": "consolidator",
+      "time": 1792675958.34,
+      "candidates": 719,
+      "grounded": 719,
+      "processed": 0,
+      "requirements": 254,
+      "discarded": 33
+    },
+    {
+      "type": "node",
+      "node": "writer",
+      "time": 1792675985.59,
+      "items": 20,
+      "written": 20
+    },
+    {
+      "type": "node",
+      "node": "writer",
+      "time": 1792675984.82,
+      "items": 20,
+      "written": 20
+    },
+    {
+      "type": "node",
+      "node": "writer",
+      "time": 1792675980.2,
+      "items": 20,
+      "written": 20
+    },
+    {
+      "type": "node",
+      "node": "writer",
+      "time": 1792675986.39,
+      "items": 20,
+      "written": 20
+    },
+    {
+      "type": "node",
+      "node": "writer",
+      "time": 1792675984.21,
+      "items": 20,
+      "written": 20
+    },
+    {
+      "type": "node",
+      "node": "writer",
+      "time": 1792675984.89,
+      "items": 20,
+      "written": 20
+    },
+    {
+      "type": "node",
+      "node": "writer",
+      "time": 1792675978.25,
+      "items": 13,
+      "written": 13
+    },
+    {
+      "type": "node",
+      "node": "checks",
+      "time": 1792675986.59,
+      "requirements": 254,
+      "issues": 31
+    },
+    {
+      "type": "node",
+      "node": "critic",
+      "time": 1792676053.8,
+      "issues": 46,
+      "notes": 0
+    },
+    {
+      "type": "node",
+      "node": "consolidator",
+      "time": 1792676065.18,
+      "candidates": 719,
+      "grounded": 719,
+      "processed": 0,
+      "requirements": 243,
+      "discarded": 36
+    },
+    {
+      "type": "node",
+      "node": "writer",
+      "time": 1792676092.74,
+      "items": 20,
+      "written": 20
+    },
+    {
+      "type": "node",
+      "node": "writer",
+      "time": 1792676091.44,
+      "items": 19,
+      "written": 19
+    },
+    {
+      "type": "node",
+      "node": "checks",
+      "time": 1792676092.99,
+      "requirements": 243,
+      "issues": 23
+    },
+    {
+      "type": "node",
+      "node": "critic",
+      "time": 1792676154.83,
+      "issues": 31,
+      "notes": 3
+    }
+  ],
+  "llm_calls": [
+    {
+      "type": "llm_call",
+      "node": "extractor",
+      "model": "gpt-5-mini",
+      "input_tokens": 1730,
+      "output_tokens": 7215,
+      "attempts": 1,
+      "ok": true,
+      "seconds": 55.7
+    },
+    {
+      "type": "llm_call",
+      "node": "extractor",
+      "model": "gpt-5-mini",
+      "input_tokens": 1666,
+      "output_tokens": 6840,
+      "attempts": 1,
+      "ok": true,
+      "seconds": 62.4
+    },
+    {
+      "type": "llm_call",
+      "node": "extractor",
+      "model": "gpt-5-mini",
+      "input_tokens": 1957,
+      "output_tokens": 5332,
+      "attempts": 1,
+      "ok": true,
+      "seconds": 50.0
+    },
+    {
+      "type": "llm_call",
+      "node": "extractor",
+      "model": "gpt-5-mini",
+      "input_tokens": 2496,
+      "output_tokens": 7055,
+      "attempts": 1,
+      "ok": true,
+      "seconds": 56.0
+    },
+    {
+      "type": "llm_call",
+      "node": "extractor",
+      "model": "gpt-5-mini",
+      "input_tokens": 1950,
+      "output_tokens": 5806,
+      "attempts": 1,
+      "ok": true,
+      "seconds": 53.9
+    },
+    {
+      "type": "llm_call",
+      "node": "extractor",
+      "model": "gpt-5-mini",
+      "input_tokens": 2211,
+      "output_tokens": 5399,
+      "attempts": 1,
+      "ok": true,
+      "seconds": 42.9
+    },
+    {
+      "type": "llm_call",
+      "node": "extractor",
+      "model": "gpt-5-mini",
+      "input_tokens": 1877,
+      "output_tokens": 5644,
+      "attempts": 1,
+      "ok": true,
+      "seconds": 45.0
+    },
+    {
+      "type": "llm_call",
+      "node": "extractor",
+      "model": "gpt-5-mini",
+      "input_tokens": 1956,
+      "output_tokens": 5244,
+      "attempts": 1,
+      "ok": true,
+      "seconds": 49.4
+    },
+    {
+      "type": "llm_call",
+      "node": "extractor",
+      "model": "gpt-5-mini",
+      "input_tokens": 2063,
+      "output_tokens": 5218,
+      "attempts": 1,
+      "ok": true,
+      "seconds": 40.3
+    },
+    {
+      "type": "llm_call",
+      "node": "extractor",
+      "model": "gpt-5-mini",
+      "input_tokens": 2720,
+      "output_tokens": 8196,
+      "attempts": 1,
+      "ok": true,
+      "seconds": 65.0
+    },
+    {
+      "type": "llm_call",
+      "node": "extractor",
+      "model": "gpt-5-mini",
+      "input_tokens": 2842,
+      "output_tokens": 9302,
+      "attempts": 1,
+      "ok": true,
+      "seconds": 74.6
+    },
+    {
+      "type": "llm_call",
+      "node": "extractor",
+      "model": "gpt-5-mini",
+      "input_tokens": 2370,
+      "output_tokens": 10228,
+      "attempts": 1,
+      "ok": true,
+      "seconds": 88.5
+    },
+    {
+      "type": "llm_call",
+      "node": "extractor",
+      "model": "gpt-5-mini",
+      "input_tokens": 2016,
+      "output_tokens": 5080,
+      "attempts": 1,
+      "ok": true,
+      "seconds": 39.1
+    },
+    {
+      "type": "llm_call",
+      "node": "extractor",
+      "model": "gpt-5-mini",
+      "input_tokens": 1864,
+      "output_tokens": 5653,
+      "attempts": 1,
+      "ok": true,
+      "seconds": 54.0
+    },
+    {
+      "type": "llm_call",
+      "node": "extractor",
+      "model": "gpt-5-mini",
+      "input_tokens": 1596,
+      "output_tokens": 5067,
+      "attempts": 1,
+      "ok": true,
+      "seconds": 53.8
+    },
+    {
+      "type": "llm_call",
+      "node": "extractor",
+      "model": "gpt-5-mini",
+      "input_tokens": 2475,
+      "output_tokens": 8904,
+      "attempts": 1,
+      "ok": true,
+      "seconds": 70.2
+    },
+    {
+      "type": "llm_call",
+      "node": "extractor",
+      "model": "gpt-5-mini",
+      "input_tokens": 1865,
+      "output_tokens": 5893,
+      "attempts": 1,
+      "ok": true,
+      "seconds": 61.2
+    },
+    {
+      "type": "llm_call",
+      "node": "extractor",
+      "model": "gpt-5-mini",
+      "input_tokens": 1786,
+      "output_tokens": 8630,
+      "attempts": 1,
+      "ok": true,
+      "seconds": 67.7
+    },
+    {
+      "type": "llm_call",
+      "node": "extractor",
+      "model": "gpt-5-mini",
+      "input_tokens": 1920,
+      "output_tokens": 7114,
+      "attempts": 1,
+      "ok": true,
+      "seconds": 57.8
+    },
+    {
+      "type": "llm_call",
+      "node": "extractor",
+      "model": "gpt-5-mini",
+      "input_tokens": 2655,
+      "output_tokens": 7507,
+      "attempts": 1,
+      "ok": true,
+      "seconds": 74.2
+    },
+    {
+      "type": "llm_call",
+      "node": "extractor",
+      "model": "gpt-5-mini",
+      "input_tokens": 2253,
+      "output_tokens": 5925,
+      "attempts": 1,
+      "ok": true,
+      "seconds": 46.3
+    },
+    {
+      "type": "llm_call",
+      "node": "extractor",
+      "model": "gpt-5-mini",
+      "input_tokens": 1951,
+      "output_tokens": 6468,
+      "attempts": 1,
+      "ok": true,
+      "seconds": 174.3
+    },
+    {
+      "type": "llm_call",
+      "node": "consolidator",
+      "model": "gpt-5.6-luna",
+      "input_tokens": 16653,
+      "output_tokens": 1955,
+      "attempts": 1,
+      "ok": true,
+      "seconds": 18.4
+    },
+    {
+      "type": "llm_call",
+      "node": "consolidator",
+      "model": "gpt-5.6-luna",
+      "input_tokens": 5862,
+      "output_tokens": 5931,
+      "attempts": 1,
+      "ok": true,
+      "seconds": 51.1
+    },
+    {
+      "type": "llm_call",
+      "node": "consolidator",
+      "model": "gpt-5.6-luna",
+      "input_tokens": 7983,
+      "output_tokens": 6283,
+      "attempts": 1,
+      "ok": true,
+      "seconds": 50.6
+    },
+    {
+      "type": "llm_call",
+      "node": "consolidator",
+      "model": "gpt-5.6-luna",
+      "input_tokens": 8586,
+      "output_tokens": 5718,
+      "attempts": 1,
+      "ok": true,
+      "seconds": 47.1
+    },
+    {
+      "type": "llm_call",
+      "node": "consolidator",
+      "model": "gpt-5.6-luna",
+      "input_tokens": 10246,
+      "output_tokens": 4877,
+      "attempts": 1,
+      "ok": true,
+      "seconds": 42.1
+    },
+    {
+      "type": "llm_call",
+      "node": "consolidator",
+      "model": "gpt-5.6-luna",
+      "input_tokens": 11974,
+      "output_tokens": 5791,
+      "attempts": 1,
+      "ok": true,
+      "seconds": 50.1
+    },
+    {
+      "type": "llm_call",
+      "node": "consolidator",
+      "model": "gpt-5.6-luna",
+      "input_tokens": 14859,
+      "output_tokens": 5634,
+      "attempts": 1,
+      "ok": true,
+      "seconds": 51.3
+    },
+    {
+      "type": "llm_call",
+      "node": "consolidator",
+      "model": "gpt-5.6-luna",
+      "input_tokens": 15221,
+      "output_tokens": 4969,
+      "attempts": 1,
+      "ok": true,
+      "seconds": 45.6
+    },
+    {
+      "type": "llm_call",
+      "node": "consolidator",
+      "model": "gpt-5.6-luna",
+      "input_tokens": 16273,
+      "output_tokens": 5686,
+      "attempts": 1,
+      "ok": true,
+      "seconds": 51.8
+    },
+    {
+      "type": "llm_call",
+      "node": "consolidator",
+      "model": "gpt-5.6-luna",
+      "input_tokens": 16603,
+      "output_tokens": 5505,
+      "attempts": 1,
+      "ok": true,
+      "seconds": 46.1
+    },
+    {
+      "type": "llm_call",
+      "node": "writer",
+      "model": "gpt-5-mini",
+      "input_tokens": 2555,
+      "output_tokens": 3074,
+      "attempts": 1,
+      "ok": true,
+      "seconds": 24.0
+    },
+    {
+      "type": "llm_call",
+      "node": "writer",
+      "model": "gpt-5-mini",
+      "input_tokens": 2394,
+      "output_tokens": 3561,
+      "attempts": 1,
+      "ok": true,
+      "seconds": 26.9
+    },
+    {
+      "type": "llm_call",
+      "node": "writer",
+      "model": "gpt-5-mini",
+      "input_tokens": 3531,
+      "output_tokens": 3121,
+      "attempts": 1,
+      "ok": true,
+      "seconds": 25.5
+    },
+    {
+      "type": "llm_call",
+      "node": "writer",
+      "model": "gpt-5-mini",
+      "input_tokens": 2888,
+      "output_tokens": 2609,
+      "attempts": 1,
+      "ok": true,
+      "seconds": 20.5
+    },
+    {
+      "type": "llm_call",
+      "node": "writer",
+      "model": "gpt-5-mini",
+      "input_tokens": 2586,
+      "output_tokens": 3551,
+      "attempts": 1,
+      "ok": true,
+      "seconds": 28.5
+    },
+    {
+      "type": "llm_call",
+      "node": "writer",
+      "model": "gpt-5-mini",
+      "input_tokens": 2932,
+      "output_tokens": 3244,
+      "attempts": 1,
+      "ok": true,
+      "seconds": 25.1
+    },
+    {
+      "type": "llm_call",
+      "node": "writer",
+      "model": "gpt-5-mini",
+      "input_tokens": 2420,
+      "output_tokens": 3083,
+      "attempts": 1,
+      "ok": true,
+      "seconds": 24.7
+    },
+    {
+      "type": "llm_call",
+      "node": "writer",
+      "model": "gpt-5-mini",
+      "input_tokens": 1876,
+      "output_tokens": 2622,
+      "attempts": 1,
+      "ok": true,
+      "seconds": 20.4
+    },
+    {
+      "type": "llm_call",
+      "node": "writer",
+      "model": "gpt-5-mini",
+      "input_tokens": 1732,
+      "output_tokens": 2859,
+      "attempts": 1,
+      "ok": true,
+      "seconds": 22.2
+    },
+    {
+      "type": "llm_call",
+      "node": "writer",
+      "model": "gpt-5-mini",
+      "input_tokens": 1687,
+      "output_tokens": 3262,
+      "attempts": 1,
+      "ok": true,
+      "seconds": 26.6
+    },
+    {
+      "type": "llm_call",
+      "node": "writer",
+      "model": "gpt-5-mini",
+      "input_tokens": 2653,
+      "output_tokens": 3559,
+      "attempts": 1,
+      "ok": true,
+      "seconds": 29.1
+    },
+    {
+      "type": "llm_call",
+      "node": "writer",
+      "model": "gpt-5-mini",
+      "input_tokens": 2273,
+      "output_tokens": 3145,
+      "attempts": 1,
+      "ok": true,
+      "seconds": 24.3
+    },
+    {
+      "type": "llm_call",
+      "node": "writer",
+      "model": "gpt-5-mini",
+      "input_tokens": 2004,
+      "output_tokens": 2619,
+      "attempts": 1,
+      "ok": true,
+      "seconds": 21.3
+    },
+    {
+      "type": "llm_call",
+      "node": "writer",
+      "model": "gpt-5-mini",
+      "input_tokens": 1050,
+      "output_tokens": 587,
+      "attempts": 1,
+      "ok": true,
+      "seconds": 5.3
+    },
+    {
+      "type": "llm_call",
+      "node": "critic",
+      "model": "gpt-6-luna",
+      "input_tokens": 29283,
+      "output_tokens": 5165,
+      "attempts": 1,
+      "ok": true,
+      "seconds": 43.0
+    },
+    {
+      "type": "llm_call",
+      "node": "consolidator",
+      "model": "gpt-5.6-luna",
+      "input_tokens": 2323,
+      "output_tokens": 1229,
+      "attempts": 1,
+      "ok": true,
+      "seconds": 10.7
+    },
+    {
+      "type": "llm_call",
+      "node": "writer",
+      "model": "gpt-5-mini",
+      "input_tokens": 3249,
+      "output_tokens": 3418,
+      "attempts": 1,
+      "ok": true,
+      "seconds": 27.2
+    },
+    {
+      "type": "llm_call",
+      "node": "writer",
+      "model": "gpt-5-mini",
+      "input_tokens": 3417,
+      "output_tokens": 3261,
+      "attempts": 1,
+      "ok": true,
+      "seconds": 26.5
+    },
+    {
+      "type": "llm_call",
+      "node": "writer",
+      "model": "gpt-5-mini",
+      "input_tokens": 3088,
+      "output_tokens": 2682,
+      "attempts": 1,
+      "ok": true,
+      "seconds": 21.9
+    },
+    {
+      "type": "llm_call",
+      "node": "writer",
+      "model": "gpt-5-mini",
+      "input_tokens": 2549,
+      "output_tokens": 3301,
+      "attempts": 1,
+      "ok": true,
+      "seconds": 28.0
+    },
+    {
+      "type": "llm_call",
+      "node": "writer",
+      "model": "gpt-5-mini",
+      "input_tokens": 2529,
+      "output_tokens": 3057,
+      "attempts": 1,
+      "ok": true,
+      "seconds": 25.9
+    },
+    {
+      "type": "llm_call",
+      "node": "writer",
+      "model": "gpt-5-mini",
+      "input_tokens": 2809,
+      "output_tokens": 3215,
+      "attempts": 1,
+      "ok": true,
+      "seconds": 26.5
+    },
+    {
+      "type": "llm_call",
+      "node": "writer",
+      "model": "gpt-5-mini",
+      "input_tokens": 2297,
+      "output_tokens": 2372,
+      "attempts": 1,
+      "ok": true,
+      "seconds": 19.9
+    },
+    {
+      "type": "llm_call",
+      "node": "critic",
+      "model": "gpt-6-luna",
+      "input_tokens": 28043,
+      "output_tokens": 8308,
+      "attempts": 1,
+      "ok": true,
+      "seconds": 67.2
+    },
+    {
+      "type": "llm_call",
+      "node": "consolidator",
+      "model": "gpt-5.6-luna",
+      "input_tokens": 2551,
+      "output_tokens": 1327,
+      "attempts": 1,
+      "ok": true,
+      "seconds": 11.4
+    },
+    {
+      "type": "llm_call",
+      "node": "writer",
+      "model": "gpt-5-mini",
+      "input_tokens": 3519,
+      "output_tokens": 3004,
+      "attempts": 1,
+      "ok": true,
+      "seconds": 27.6
+    },
+    {
+      "type": "llm_call",
+      "node": "writer",
+      "model": "gpt-5-mini",
+      "input_tokens": 2846,
+      "output_tokens": 3155,
+      "attempts": 1,
+      "ok": true,
+      "seconds": 26.2
+    },
+    {
+      "type": "llm_call",
+      "node": "critic",
+      "model": "gpt-6-luna",
+      "input_tokens": 26766,
+      "output_tokens": 7125,
+      "attempts": 1,
+      "ok": true,
+      "seconds": 61.8
+    }
+  ]
+}

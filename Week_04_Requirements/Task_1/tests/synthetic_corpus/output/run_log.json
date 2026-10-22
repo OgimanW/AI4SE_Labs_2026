@@ -1,0 +1,268 @@
+{
+  "input_dir": "tests/synthetic_corpus/docs",
+  "generated": "2026-10-22T14:53:31",
+  "models": {
+    "extractor": "gpt-5-mini",
+    "consolidator": "gpt-5.6-luna",
+    "writer": "gpt-5-mini",
+    "critic": "gpt-6-luna"
+  },
+  "usage_per_node": {
+    "extractor": {
+      "model": "gpt-5-mini",
+      "calls": 4,
+      "failed": 0,
+      "input_tokens": 3227,
+      "output_tokens": 10020
+    },
+    "consolidator": {
+      "model": "gpt-5.6-luna",
+      "calls": 3,
+      "failed": 0,
+      "input_tokens": 3604,
+      "output_tokens": 4601
+    },
+    "writer": {
+      "model": "gpt-5-mini",
+      "calls": 1,
+      "failed": 0,
+      "input_tokens": 1623,
+      "output_tokens": 2025
+    },
+    "critic": {
+      "model": "gpt-6-luna",
+      "calls": 2,
+      "failed": 0,
+      "input_tokens": 4112,
+      "output_tokens": 3241
+    }
+  },
+  "rework_loops": 1,
+  "rounds": [
+    {
+      "round": 1,
+      "issues": [
+        {
+          "target": "consolidator",
+          "kind": "conflict",
+          "refs": [
+            "R016",
+            "R017"
+          ],
+          "text": "[conflict/high] R016, R017: Both requirements set different automatic ride-ending intervals for the same condition: 5 minutes versus 15 minutes after the bike is parked and locked. They cannot both govern the same ride.",
+          "source": "critic"
+        }
+      ],
+      "minor_notes": [
+        "[inconsistent_vocabulary/low] R009: The description uses “free bikes,” which the glossary lists as a synonym to avoid for “available bike.”"
+      ],
+      "critic_ok": true
+    },
+    {
+      "round": 2,
+      "issues": [],
+      "minor_notes": [
+        "[unclear/low] R004: “After the rider has left it” does not specify how the system determines that the rider has left the bike, so the billing behavior is difficult to implement or verify.",
+        "[unclear/low] R006: “About to expire” and “near the reservation expiry” do not define when the notification should be sent.",
+        "[inconsistent_vocabulary/low] R009: The description uses “free bikes,” while the glossary specifies “available bike” and lists “free bike” as a synonym to avoid.",
+        "[unclear/low] R012: “Low battery” is not defined, leaving unclear which bikes the dashboard should list."
+      ],
+      "critic_ok": true
+    }
+  ],
+  "nodes_executed": [
+    {
+      "type": "node",
+      "node": "loader",
+      "time": 1792673491.82,
+      "documents": 4,
+      "chunks": 4,
+      "skipped": []
+    },
+    {
+      "type": "node",
+      "node": "extractor",
+      "time": 1792673515.37,
+      "chunk": "DOC-01#1",
+      "candidates": 7
+    },
+    {
+      "type": "node",
+      "node": "extractor",
+      "time": 1792673510.52,
+      "chunk": "DOC-02#1",
+      "candidates": 7
+    },
+    {
+      "type": "node",
+      "node": "extractor",
+      "time": 1792673511.58,
+      "chunk": "DOC-03#1",
+      "candidates": 7
+    },
+    {
+      "type": "node",
+      "node": "extractor",
+      "time": 1792673513.54,
+      "chunk": "DOC-04#1",
+      "candidates": 5
+    },
+    {
+      "type": "node",
+      "node": "consolidator",
+      "time": 1792673554.51,
+      "candidates": 26,
+      "grounded": 26,
+      "processed": 26,
+      "requirements": 17,
+      "discarded": 5
+    },
+    {
+      "type": "node",
+      "node": "writer",
+      "time": 1792673571.16,
+      "items": 17,
+      "written": 17
+    },
+    {
+      "type": "node",
+      "node": "checks",
+      "time": 1792673571.17,
+      "requirements": 17,
+      "issues": 0
+    },
+    {
+      "type": "node",
+      "node": "critic",
+      "time": 1792673586.23,
+      "issues": 1,
+      "notes": 1
+    },
+    {
+      "type": "node",
+      "node": "consolidator",
+      "time": 1792673589.38,
+      "candidates": 26,
+      "grounded": 26,
+      "processed": 0,
+      "requirements": 16,
+      "discarded": 6
+    },
+    {
+      "type": "node",
+      "node": "checks",
+      "time": 1792673589.39,
+      "requirements": 16,
+      "issues": 0
+    },
+    {
+      "type": "node",
+      "node": "critic",
+      "time": 1792673611.92,
+      "issues": 0,
+      "notes": 4
+    }
+  ],
+  "llm_calls": [
+    {
+      "type": "llm_call",
+      "node": "extractor",
+      "model": "gpt-5-mini",
+      "input_tokens": 866,
+      "output_tokens": 2853,
+      "attempts": 1,
+      "ok": true,
+      "seconds": 23.1
+    },
+    {
+      "type": "llm_call",
+      "node": "extractor",
+      "model": "gpt-5-mini",
+      "input_tokens": 738,
+      "output_tokens": 2204,
+      "attempts": 1,
+      "ok": true,
+      "seconds": 18.3
+    },
+    {
+      "type": "llm_call",
+      "node": "extractor",
+      "model": "gpt-5-mini",
+      "input_tokens": 863,
+      "output_tokens": 2380,
+      "attempts": 1,
+      "ok": true,
+      "seconds": 19.3
+    },
+    {
+      "type": "llm_call",
+      "node": "extractor",
+      "model": "gpt-5-mini",
+      "input_tokens": 760,
+      "output_tokens": 2583,
+      "attempts": 1,
+      "ok": true,
+      "seconds": 21.3
+    },
+    {
+      "type": "llm_call",
+      "node": "consolidator",
+      "model": "gpt-5.6-luna",
+      "input_tokens": 763,
+      "output_tokens": 1714,
+      "attempts": 1,
+      "ok": true,
+      "seconds": 17.2
+    },
+    {
+      "type": "llm_call",
+      "node": "consolidator",
+      "model": "gpt-5.6-luna",
+      "input_tokens": 2310,
+      "output_tokens": 2646,
+      "attempts": 1,
+      "ok": true,
+      "seconds": 21.9
+    },
+    {
+      "type": "llm_call",
+      "node": "writer",
+      "model": "gpt-5-mini",
+      "input_tokens": 1623,
+      "output_tokens": 2025,
+      "attempts": 1,
+      "ok": true,
+      "seconds": 16.7
+    },
+    {
+      "type": "llm_call",
+      "node": "critic",
+      "model": "gpt-6-luna",
+      "input_tokens": 2109,
+      "output_tokens": 1008,
+      "attempts": 1,
+      "ok": true,
+      "seconds": 15.1
+    },
+    {
+      "type": "llm_call",
+      "node": "consolidator",
+      "model": "gpt-5.6-luna",
+      "input_tokens": 531,
+      "output_tokens": 241,
+      "attempts": 1,
+      "ok": true,
+      "seconds": 3.1
+    },
+    {
+      "type": "llm_call",
+      "node": "critic",
+      "model": "gpt-6-luna",
+      "input_tokens": 2003,
+      "output_tokens": 2233,
+      "attempts": 1,
+      "ok": true,
+      "seconds": 22.5
+    }
+  ]
+}

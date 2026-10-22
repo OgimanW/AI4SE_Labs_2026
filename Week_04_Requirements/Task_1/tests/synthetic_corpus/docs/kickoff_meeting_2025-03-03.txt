@@ -1,0 +1,21 @@
+CITYCYCLE APP - KICK-OFF MEETING NOTES
+Date: 2025-03-03
+Attendees: Jana (product owner), Petr (backend), Eva (operations), Tomas (support)
+
+1. Agenda
+- welcome, coffee machine is broken again (Eva will call the technician)
+- core features of the rider app
+
+2. Discussion
+- Riders must be able to see available bikes on a map, updated in real time.
+- Unlocking: the rider scans the QR code on the bike to unlock it. This is a must.
+- A ride ends automatically when the bike has been parked and locked for 15 minutes.
+- Payment by credit or debit card inside the app is required for launch.
+- Eva: operations staff need a dashboard listing bikes with low battery so they can be
+  swapped. High priority for operations.
+- Tomas asked that support staff can refund a ride from the admin console.
+- Gamification (badges for kilometres ridden): agreed to postpone to version 2.
+
+3. Action items
+- Petr: estimate map integration
+- Tomas: order new office chairs for the support team

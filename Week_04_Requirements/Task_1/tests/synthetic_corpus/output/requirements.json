@@ -1,0 +1,494 @@
+{
+  "generated": "2026-10-22T14:53:31",
+  "models": {
+    "extractor": "gpt-5-mini",
+    "consolidator": "gpt-5.6-luna",
+    "writer": "gpt-5-mini",
+    "critic": "gpt-6-luna"
+  },
+  "documents": [
+    {
+      "id": "DOC-01",
+      "file": "email_ride_rules.eml"
+    },
+    {
+      "id": "DOC-02",
+      "file": "feature_wishlist.md"
+    },
+    {
+      "id": "DOC-03",
+      "file": "kickoff_meeting_2025-03-03.txt"
+    },
+    {
+      "id": "DOC-04",
+      "file": "support_survey_2025.txt"
+    }
+  ],
+  "priority_scale": {
+    "Must": "Essential; mandated by stakeholders, law or the core purpose. Without it the release fails.",
+    "Should": "Important and expected, but a workaround exists or it can follow shortly.",
+    "Could": "Desirable improvement (nice to have); included if time and budget allow.",
+    "Won't": "Explicitly agreed to be left out of the current release (deferred)."
+  },
+  "scope_summary": "The product is a bike-sharing mobile application for riders to find, reserve, unlock, ride, and pay for bicycles. It includes real-time maps, ride lifecycle management, subscriptions, card payments, notifications, and privacy-controlled ride history. Operations staff use operational tools to monitor bike battery levels, while support agents use an admin console to view rider profiles and histories and issue refunds. The scope excludes physically teleporting bikes, impossible 100%-accurate destination prediction, and gamification planned for a later version.",
+  "glossary": [
+    {
+      "term": "rider",
+      "definition": "A person who uses the bike-sharing service to reserve, unlock, ride, and pay for a bike.",
+      "synonyms": []
+    },
+    {
+      "term": "bike",
+      "definition": "A shared bicycle made available to riders through the service.",
+      "synonyms": []
+    },
+    {
+      "term": "ride",
+      "definition": "A rider’s active or completed use of a bike, including its start, duration, end, and charges.",
+      "synonyms": []
+    },
+    {
+      "term": "ride history",
+      "definition": "The stored record of a rider’s completed rides, potentially including GPS traces.",
+      "synonyms": []
+    },
+    {
+      "term": "GPS trace",
+      "definition": "Location information recorded during a ride that represents the bike’s route or movements.",
+      "synonyms": []
+    },
+    {
+      "term": "live map",
+      "definition": "A map showing the current locations of available bikes and docking stations, including current docking-station capacity where applicable.",
+      "synonyms": [
+        "real-time map"
+      ]
+    },
+    {
+      "term": "available bike",
+      "definition": "A bike that is currently free for a rider to use or reserve.",
+      "synonyms": [
+        "free bike"
+      ]
+    },
+    {
+      "term": "docking station",
+      "definition": "A designated location for parking bikes and showing the number of unoccupied bike slots.",
+      "synonyms": []
+    },
+    {
+      "term": "reservation",
+      "definition": "A temporary hold that lets a rider claim a bike for a limited period before reaching it.",
+      "synonyms": []
+    },
+    {
+      "term": "subscription plan",
+      "definition": "A paid service plan that provides defined ride benefits, such as unlimited rides subject to a per-ride duration limit.",
+      "synonyms": []
+    },
+    {
+      "term": "support agent",
+      "definition": "A service representative who uses the admin console to inspect rider information and handle actions such as refunds.",
+      "synonyms": [
+        "support staff"
+      ]
+    },
+    {
+      "term": "operations staff",
+      "definition": "Personnel responsible for fleet operations, including identifying bikes with low batteries for swapping.",
+      "synonyms": []
+    },
+    {
+      "term": "admin console",
+      "definition": "An internal interface used by support agents to access rider information and manage service actions.",
+      "synonyms": []
+    },
+    {
+      "term": "rider profile",
+      "definition": "The rider account information displayed in the admin console.",
+      "synonyms": []
+    },
+    {
+      "term": "refund",
+      "definition": "A reversal or repayment of a ride charge initiated through the admin console.",
+      "synonyms": []
+    },
+    {
+      "term": "QR code",
+      "definition": "The machine-readable code on a bike that a rider scans to unlock it.",
+      "synonyms": []
+    },
+    {
+      "term": "push notification",
+      "definition": "A notification delivered to a rider’s device, such as an alert that a reservation is about to expire.",
+      "synonyms": []
+    },
+    {
+      "term": "auto-end interval",
+      "definition": "The required time a bike must remain parked and locked before the system automatically ends its ride.",
+      "synonyms": []
+    },
+    {
+      "term": "payment card",
+      "definition": "A credit or debit card used to pay for service charges inside the app.",
+      "synonyms": []
+    },
+    {
+      "term": "dark mode",
+      "definition": "An application display theme using a dark color scheme.",
+      "synonyms": []
+    }
+  ],
+  "requirements": [
+    {
+      "id": "REQ-001",
+      "name": "Delete GPS Ride History After 12 Months",
+      "description": "The system shall delete ride history containing GPS traces after 12 months to comply with the data protection policy, ensuring riders' location data is not retained longer than permitted. This applies to all stored ride history that includes GPS trace data and is required by the stated policy to protect rider privacy.",
+      "priority": "Must",
+      "priority_rationale": "The statement is labelled mandatory and must, citing the data protection policy.",
+      "type": "non_functional",
+      "area": "Privacy",
+      "sources": [
+        "DOC-01"
+      ],
+      "candidates": [
+        "C-002",
+        "C-007"
+      ]
+    },
+    {
+      "id": "REQ-002",
+      "name": "Support Android 10 And iOS 15+",
+      "description": "The system shall work on Android 10 and later and iOS 15 and later so that riders on those platform versions can use the mobile application. This compatibility requirement applies at launch and ensures the app reaches the intended user device base.",
+      "priority": "Must",
+      "priority_rationale": "The requirement explicitly uses the word must for platform support.",
+      "type": "non_functional",
+      "area": "Platform compatibility",
+      "sources": [
+        "DOC-01"
+      ],
+      "candidates": [
+        "C-003"
+      ]
+    },
+    {
+      "id": "REQ-003",
+      "name": "Show Docking Stations With Free Slots",
+      "description": "The system shall show docking stations on the live map with the number of free slots so riders can see where they can park and lock a bike. This feature displays each docking station and the current count of free slots on the live map to support rider trip planning.",
+      "priority": "Should",
+      "priority_rationale": "No explicit obligation is given, so it is treated as an expected functional requirement.",
+      "type": "functional",
+      "area": "Maps",
+      "sources": [
+        "DOC-01"
+      ],
+      "candidates": [
+        "C-004"
+      ]
+    },
+    {
+      "id": "REQ-004",
+      "name": "Live Map Shows Available Bikes",
+      "description": "The system shall allow riders to see available bikes on a live map updated in real time so riders can find free bikes parked right now. This applies to the live map feature and requires the map to present the current locations of available bikes with real-time updates.",
+      "priority": "Must",
+      "priority_rationale": "The statement includes \"must\" and is described as most requested, indicating strong priority.",
+      "type": "functional",
+      "area": "Maps",
+      "sources": [
+        "DOC-02",
+        "DOC-03"
+      ],
+      "candidates": [
+        "C-015",
+        "C-008"
+      ]
+    },
+    {
+      "id": "REQ-005",
+      "name": "Prevent Charging After Leaving Bike",
+      "description": "The system shall not charge a rider for a bike after the rider has left it to prevent incorrect billing when a rider has already ended use of the bike. This behavior applies to billing logic so riders are not charged for time after they have left and stopped using the bike.",
+      "priority": "Should",
+      "priority_rationale": "No explicit mandatory wording is present but the issue reported indicates an important operational need.",
+      "type": "functional",
+      "area": "Payments",
+      "sources": [
+        "DOC-01"
+      ],
+      "candidates": [
+        "C-005"
+      ]
+    },
+    {
+      "id": "REQ-006",
+      "name": "Support In-App Payment By Card",
+      "description": "The system shall support payment by payment card inside the app for launch so riders can pay with credit or debit cards within the application. This constraint applies at launch and requires the payment flow to accept payment card transactions in-app.",
+      "priority": "Must",
+      "priority_rationale": "The requirement is stated as required for launch.",
+      "type": "non_functional",
+      "area": "Payments",
+      "sources": [
+        "DOC-03"
+      ],
+      "candidates": [
+        "C-018"
+      ]
+    },
+    {
+      "id": "REQ-007",
+      "name": "Allow Ten Minute Reservations",
+      "description": "The system shall allow a rider to reserve a bike for up to 10 minutes before reaching it so riders can hold an available bike while they approach. This reservation period applies to the reservation feature and sets the maximum reservation duration at 10 minutes.",
+      "priority": "Could",
+      "priority_rationale": "The statement is prefaced with \"would be nice,\" indicating an optional enhancement.",
+      "type": "functional",
+      "area": "Reservations",
+      "sources": [
+        "DOC-02"
+      ],
+      "candidates": [
+        "C-009"
+      ]
+    },
+    {
+      "id": "REQ-008",
+      "name": "Notify On Reservation Expiry",
+      "description": "The system shall send a push notification when a rider's reservation is about to expire so riders are warned before their reservation ends. This notification applies to active reservations and triggers near the reservation expiry to prompt rider action.",
+      "priority": "Should",
+      "priority_rationale": "No explicit obligation is given, so it is treated as an expected feature.",
+      "type": "functional",
+      "area": "Notifications",
+      "sources": [
+        "DOC-02"
+      ],
+      "candidates": [
+        "C-010"
+      ]
+    },
+    {
+      "id": "REQ-009",
+      "name": "Monthly Unlimited 30-Minute Subscription",
+      "description": "The system shall provide a monthly subscription plan with unlimited 30-minute rides so riders can pay a recurring fee for repeated short rides. This subscription plan feature defines a monthly subscription plan whose allowance is unlimited rides limited to 30 minutes each.",
+      "priority": "Should",
+      "priority_rationale": "No explicit mandatory wording is present; it is an expected product feature.",
+      "type": "functional",
+      "area": "Subscriptions",
+      "sources": [
+        "DOC-02"
+      ],
+      "candidates": [
+        "C-011"
+      ]
+    },
+    {
+      "id": "REQ-010",
+      "name": "Provide Dark Mode Option",
+      "description": "The system shall provide a dark mode so riders can use the application with a dark visual theme if possible. This non-functional user interface option is requested to improve user comfort and accessibility when the implementation is feasible.",
+      "priority": "Could",
+      "priority_rationale": "The request is qualified with \"if possible,\" indicating it is desirable but optional.",
+      "type": "non_functional",
+      "area": "Accessibility and presentation",
+      "sources": [
+        "DOC-02"
+      ],
+      "candidates": [
+        "C-014"
+      ]
+    },
+    {
+      "id": "REQ-011",
+      "name": "Unlock Bike By Scanning QR Code",
+      "description": "The system shall allow riders to unlock a bike by scanning the QR code on the bike so riders can initiate a ride using the bike's QR code. This unlocking method applies to the ride start flow and requires the app to accept and process the bike QR code scan to unlock the bike.",
+      "priority": "Must",
+      "priority_rationale": "The statement explicitly says \"This is a must.\"",
+      "type": "functional",
+      "area": "Bike access",
+      "sources": [
+        "DOC-03"
+      ],
+      "candidates": [
+        "C-016"
+      ]
+    },
+    {
+      "id": "REQ-012",
+      "name": "Operations Dashboard For Low Battery Bikes",
+      "description": "The system shall provide operations staff with a dashboard listing bikes with low battery so they can identify and swap low-battery bikes. This operational tool presents bikes flagged as low battery to operations staff to support timely battery replacement or redistribution.",
+      "priority": "Should",
+      "priority_rationale": "The statement is labeled high priority for operations but does not use mandatory wording, so it is treated as Should.",
+      "type": "functional",
+      "area": "Operations",
+      "sources": [
+        "DOC-03"
+      ],
+      "candidates": [
+        "C-019"
+      ]
+    },
+    {
+      "id": "REQ-013",
+      "name": "Admin Console Ride History Access",
+      "description": "The system shall allow support agents to view a rider's ride history in the admin console so support agents can answer complaints and investigate issues. This admin console feature must present the rider's ride history to support agents when they access a rider profile.",
+      "priority": "Should",
+      "priority_rationale": "The cue \"7 of 9, need\" indicates strong need but lacks explicit mandatory wording, so it is treated as Should.",
+      "type": "functional",
+      "area": "Support administration",
+      "sources": [
+        "DOC-04"
+      ],
+      "candidates": [
+        "C-022"
+      ]
+    },
+    {
+      "id": "REQ-014",
+      "name": "Issue Refunds From Admin Console",
+      "description": "The system shall allow support agents to issue refunds directly from the admin console without requiring them to email finance so refunds are processed faster by support agents. This admin console capability enables support agents to create refunds within the console as an alternative to emailing finance.",
+      "priority": "Must",
+      "priority_rationale": "The statement includes \"must\" and emphasizes removing the current mandatory email-to-finance process.",
+      "type": "functional",
+      "area": "Support administration",
+      "sources": [
+        "DOC-03",
+        "DOC-04"
+      ],
+      "candidates": [
+        "C-023",
+        "C-020",
+        "C-024"
+      ]
+    },
+    {
+      "id": "REQ-015",
+      "name": "Load Rider Profile Under Two Seconds",
+      "description": "The system shall load a rider profile in the admin console in under 2 seconds so support agents can access rider information quickly during support calls. This performance target applies to the admin console profile load operation to improve support efficiency.",
+      "priority": "Should",
+      "priority_rationale": "The requirement is explicitly labeled should.",
+      "type": "non_functional",
+      "area": "Support administration",
+      "sources": [
+        "DOC-04"
+      ],
+      "candidates": [
+        "C-025"
+      ]
+    },
+    {
+      "id": "REQ-016",
+      "name": "Auto-End Ride After Five Minutes Locked",
+      "description": "The system shall end a ride automatically when the bike has been parked and locked for 5 minutes so rides conclude without manual action after the auto-end interval. This behavior applies to ride lifecycle management and ends the ride after the bike has been parked and locked for the stated 5 minute interval as decided.",
+      "priority": "Should",
+      "priority_rationale": "No explicit mandatory wording is present; it is a stated decision but not labeled must.",
+      "type": "functional",
+      "area": "Ride lifecycle",
+      "sources": [
+        "DOC-01"
+      ],
+      "candidates": [
+        "C-001"
+      ]
+    }
+  ],
+  "discarded": [
+    {
+      "id": "DIS-001",
+      "original_statement": "The system shall not use 15 minutes as the auto-end interval for a parked and locked bike.",
+      "sources": [
+        "DOC-01"
+      ],
+      "reason_category": "conflict",
+      "explanation": "The candidate conflicts with the explicit decision that a ride ends automatically after the bike has been parked and locked for 5 minutes.",
+      "conflicts_with": null,
+      "candidates": [
+        "C-006"
+      ]
+    },
+    {
+      "id": "DIS-002",
+      "original_statement": "The system shall predict where a rider wants to go before they think of it with 100% accuracy.",
+      "sources": [
+        "DOC-02"
+      ],
+      "reason_category": "out_of_scope",
+      "explanation": "The product scope explicitly excludes impossible 100%-accurate destination prediction.",
+      "conflicts_with": null,
+      "candidates": [
+        "C-012"
+      ]
+    },
+    {
+      "id": "DIS-003",
+      "original_statement": "The system shall teleport the bike to the rider.",
+      "sources": [
+        "DOC-02"
+      ],
+      "reason_category": "out_of_scope",
+      "explanation": "The product scope explicitly excludes physically teleporting bikes.",
+      "conflicts_with": null,
+      "candidates": [
+        "C-013"
+      ]
+    },
+    {
+      "id": "DIS-004",
+      "original_statement": "The system shall postpone gamification (badges for kilometres ridden) to version 2.",
+      "sources": [
+        "DOC-03"
+      ],
+      "reason_category": "out_of_scope",
+      "explanation": "The product scope explicitly states that gamification is postponed to a later version.",
+      "conflicts_with": null,
+      "candidates": [
+        "C-021"
+      ]
+    },
+    {
+      "id": "DIS-005",
+      "original_statement": "The system shall provide a better parking spot near the office.",
+      "sources": [
+        "DOC-04"
+      ],
+      "reason_category": "out_of_scope",
+      "explanation": "The candidate requests a physical parking spot near an office rather than behavior of the bike-sharing application.",
+      "conflicts_with": null,
+      "candidates": [
+        "C-026"
+      ]
+    },
+    {
+      "id": "DIS-006",
+      "original_statement": "The system shall end a ride automatically when the bike has been parked and locked for 5 minutes.",
+      "sources": [
+        "DOC-03"
+      ],
+      "reason_category": "conflict",
+      "explanation": "R017 conflicts with REQ-016 on the automatic ride-ending interval: its evidence specifies 15 minutes, while REQ-016 requires 5 minutes for the same parked-and-locked condition. REQ-016 is retained as the governing requirement.",
+      "conflicts_with": "REQ-016",
+      "candidates": [
+        "C-017"
+      ]
+    }
+  ],
+  "validation": {
+    "candidates": 26,
+    "rework_loops": 1,
+    "max_iterations": 2,
+    "rounds": [
+      {
+        "round": 1,
+        "issues": 1,
+        "minor_notes": 1
+      },
+      {
+        "round": 2,
+        "issues": 0,
+        "minor_notes": 4
+      }
+    ],
+    "unresolved": [],
+    "minor_notes": [
+      "[unclear/low] REQ-005: “After the rider has left it” does not specify how the system determines that the rider has left the bike, so the billing behavior is difficult to implement or verify.",
+      "[unclear/low] REQ-008: “About to expire” and “near the reservation expiry” do not define when the notification should be sent.",
+      "[inconsistent_vocabulary/low] REQ-004: The description uses “free bikes,” while the glossary specifies “available bike” and lists “free bike” as a synonym to avoid.",
+      "[unclear/low] REQ-012: “Low battery” is not defined, leaving unclear which bikes the dashboard should list."
+    ]
+  }
+}

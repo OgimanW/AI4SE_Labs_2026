@@ -1,0 +1,25 @@
+From: jana.novak@citycycle.example
+To: dev-team@citycycle.example
+Subject: Re: ride auto-end and data retention
+Date: Thu, 10 Apr 2025 14:02:00 +0200
+
+Hi all,
+
+After the pilot we reviewed the auto-end rule. 15 minutes was far too long, people
+were paying for bikes they had already left. DECISION: a ride ends automatically
+when the bike has been parked and locked for 5 minutes. Please update the spec.
+
+Also, legal reminded us that ride history containing GPS traces must be deleted
+after 12 months. This is mandatory under our data protection policy.
+
+And one more: the app must work on Android 10+ and iOS 15+.
+
+Cheers,
+Jana
+(PS: anyone up for the team run on Saturday?)
+
+> On 2 Apr 2025 Petr wrote:
+> Should the map also show docking stations? I think riders want to see where
+> they can park.
+
+Yes Petr, the map should show docking stations with the number of free slots.
