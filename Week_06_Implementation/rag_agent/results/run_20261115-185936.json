@@ -1,0 +1,748 @@
+{
+  "model": "gpt-5-mini",
+  "k": 5,
+  "usage": {
+    "prompt_tokens": 17352,
+    "completion_tokens": 7626
+  },
+  "tasks": [
+    {
+      "target": "OrderStatus.is_terminal",
+      "file": "playground/playground/enums.py",
+      "status": "written",
+      "retrieved": [
+        "playground/playground/orders.py::OrderStateMachine..OrderStateMachine.__call__::14-40",
+        "playground/tests/test_enums.py::OrderStatusTests..EventTypeTests.test_members_are_hashable_and_distinct::50-79",
+        "playground/tests/test_orders.py::OrderStateMachineTests.test_call_is_alias_for_transition::68-72",
+        "playground/tests/test_orders.py::OrderStateMachineTests.test_allowed_from_returns_frozenset..OrderStateMachineTests.test_transition_illegal_raises::46-66",
+        "playground/tests/test_orders.py::OrderAdvanceTests..OrderAdvanceTests.test_advance_to_same_status_raises::147-181"
+      ],
+      "attempts": 1,
+      "error": null,
+      "code": "    @property\n    def is_terminal(self) -> bool:\n        \"\"\"True when the status ends further transitions.\"\"\"\n        from .orders import OrderStateMachine\n\n        return len(OrderStateMachine.allowed_from(self)) == 0"
+    },
+    {
+      "target": "InventoryLedger.__contains__",
+      "file": "playground/playground/inventory.py",
+      "status": "written",
+      "retrieved": [
+        "playground/playground/inventory.py::InventoryLedger.commit..InventoryLedger.__iter__::61-81",
+        "playground/tests/test_inventory.py::InventoryLedgerStockTests.test_quantity_validated_before_sku..InventoryLedgerStockTests.test_require_sku_malformed_raises_value_error::65-90",
+        "playground/tests/test_inventory.py::InventoryLedgerStockTests..InventoryLedgerStockTests.test_add_stock_zero_quantity::36-63",
+        "playground/playground/inventory.py::InventoryLedger..InventoryLedger.available::12-40",
+        "playground/tests/test_inventory.py::InventoryLedgerContainsLenIterTests.test_len_excludes_fully_committed_sku..InventoryLedgerContainsLenIterTests.test_iter_empty::240-260"
+      ],
+      "attempts": 1,
+      "error": null,
+      "code": "def __contains__(self, sku: object) -> bool:\n    \"\"\"Return whether ``sku`` normalises to a SKU with positive on-hand stock.\"\"\"\n    # Normalize SKU (let normalization-related errors propagate)\n    sku = normalize_sku(sku)\n    # If SKU is not a known product, it's not \"in\" the ledger\n    if sku not in self._product_repo:\n        return False\n    # Return True only if on-hand quantity is positive\n    return self._on_hand.get(sku, 0) > 0"
+    },
+    {
+      "target": "Warehouse.stock_report",
+      "file": "playground/playground/inventory.py",
+      "status": "written",
+      "retrieved": [
+        "playground/playground/inventory.py::InventoryLedger..InventoryLedger.available::12-40",
+        "playground/playground/inventory.py::InventoryLedger.commit..InventoryLedger.__iter__::61-81",
+        "playground/playground/models.py::LineItem..LineItem.__repr__::165-218",
+        "playground/playground/inventory.py::InventoryLedger.reserve..InventoryLedger.release::42-59",
+        "playground/playground/inventory.py::Warehouse..Warehouse.__repr__::124-155"
+      ],
+      "attempts": 1,
+      "error": null,
+      "code": "def stock_report(self) -> Dict[str, int]:\n    \"\"\"Return a mapping of SKU to available quantity.\"\"\"\n    return {sku: self._ledger.available(sku) for sku in self._ledger}"
+    },
+    {
+      "target": "OrderStateMachine.transition",
+      "file": "playground/playground/orders.py",
+      "status": "written",
+      "retrieved": [
+        "playground/playground/orders.py::OrderStateMachine..OrderStateMachine.__call__::14-40",
+        "playground/tests/test_orders.py::OrderStateMachineTests.test_call_is_alias_for_transition::68-72",
+        "playground/tests/test_orders.py::OrderStateMachineTests.test_allowed_from_returns_frozenset..OrderStateMachineTests.test_transition_illegal_raises::46-66",
+        "playground/tests/test_orders.py::OrderStateMachineTests..OrderStateMachineTests.test_terminal_states_have_no_outgoing::22-44",
+        "playground/playground/orders.py::<module>::1-11"
+      ],
+      "attempts": 1,
+      "error": null,
+      "code": "def transition(self, source: OrderStatus, target: OrderStatus) -> OrderStatus:\n    \"\"\"Return ``target`` if the transition is allowed, else raise.\"\"\"\n    if not isinstance(source, OrderStatus):\n        raise TypeError(\"source must be OrderStatus\")\n    if not isinstance(target, OrderStatus):\n        raise TypeError(\"target must be OrderStatus\")\n    if not self.can_transition(source, target):\n        raise InvalidTransitionError(source, target)\n    return target"
+    },
+    {
+      "target": "OrderLog.by_status",
+      "file": "playground/playground/orders.py",
+      "status": "written",
+      "retrieved": [
+        "playground/tests/test_orders.py::OrderLogTests.test_by_status_filters..OrderLogTests.test_by_status_non_status_raises_on_first_next::390-409",
+        "playground/playground/orders.py::OrderLog..OrderLog.__iter__::167-196",
+        "playground/playground/orders.py::OrderStateMachine..OrderStateMachine.__call__::14-40",
+        "playground/playground/orders.py::Order.__eq__..Order.__repr__::110-122",
+        "playground/tests/test_orders.py::OrderLogTests.test_iter_yields_in_insertion_order..OrderLogTests.test_iter_snapshot_isolated_after_first_next::369-388"
+      ],
+      "attempts": 1,
+      "error": null,
+      "code": "def by_status(self, status: OrderStatus) -> Iterator[Order]:\n    \"\"\"Yield orders whose status matches ``status``.\"\"\"\n    def _gen() -> Iterator[Order]:\n        if not isinstance(status, OrderStatus):\n            raise TypeError(\"status must be OrderStatus\")\n        for order in list(self._orders):\n            if order.status == status:\n                yield order\n    return _gen()"
+    },
+    {
+      "target": "Customer.can_afford",
+      "file": "playground/playground/models.py",
+      "status": "written",
+      "retrieved": [
+        "playground/playground/models.py::Customer..Customer.charge::221-268",
+        "playground/tests/test_models.py::CustomerTests.test_non_str_name_rejected..CustomerTests.test_can_afford_non_money_rejected::434-465",
+        "playground/tests/test_models.py::CustomerTests.test_charge_increases_balance..CustomerTests.test_read_only_properties::467-493",
+        "playground/tests/test_models.py::CustomerTests..CustomerTests.test_empty_name_rejected::403-432",
+        "playground/tests/test_pricing.py::BulkDiscountPriceTests..BulkDiscountPriceTests.test_discount_uses_floor_division::118-144"
+      ],
+      "attempts": 1,
+      "error": null,
+      "code": "def can_afford(self, total: Money) -> bool:\n    \"\"\"Return True if ``balance + total`` does not exceed the credit limit.\"\"\"\n    if not isinstance(total, Money):\n        raise TypeError(\"total must be Money\")\n    return (self._balance + total) <= self._credit_limit"
+    },
+    {
+      "target": "Order.__len__",
+      "file": "playground/playground/orders.py",
+      "status": "written",
+      "retrieved": [
+        "playground/tests/test_orders.py::OrderContainerTests..OrderContainerTests.test_iter_is_snapshot::201-223",
+        "playground/playground/orders.py::Order.total..Order.__iter__::81-108",
+        "playground/playground/orders.py::Order.__eq__..Order.__repr__::110-122",
+        "playground/playground/orders.py::OrderLog..OrderLog.__iter__::167-196",
+        "playground/tests/test_orders.py::OrderBuilderTests.test_add_validates_via_line_item..OrderBuilderTests.test_build_produces_order_with_lines::272-300"
+      ],
+      "attempts": 1,
+      "error": null,
+      "code": "def __len__(self) -> int:\n    \"\"\"Return the number of line items.\"\"\"\n    return len(self._items)"
+    },
+    {
+      "target": "BulkDiscountPricing.price",
+      "file": "playground/playground/pricing.py",
+      "status": "written",
+      "retrieved": [
+        "playground/playground/pricing.py::BulkDiscountPricing..BulkDiscountPricing.__repr__::37-68",
+        "playground/tests/test_pricing.py::BulkDiscountPriceTests..BulkDiscountPriceTests.test_discount_uses_floor_division::118-144",
+        "playground/tests/test_pricing.py::BulkDiscountPriceTests.test_full_discount_yields_zero..BulkDiscountPriceTests.test_call_matches_price::146-164",
+        "playground/tests/test_pricing.py::BulkDiscountConstructionTests..BulkDiscountConstructionTests.test_is_pricing_strategy::73-115",
+        "playground/tests/test_orders.py::OrderTotalTests..OrderTotalTests.test_total_reflects_merged_quantities_for_bulk_discount::184-198"
+      ],
+      "attempts": 1,
+      "error": null,
+      "code": "def price(self, items: Sequence[LineItem]) -> Money:\n    \"\"\"Return the base price, less the discount if the quantity qualifies.\"\"\"\n    total_qty = sum(item.quantity for item in items)\n    base_total = self._base.price(items)\n    if total_qty < self._threshold or self._percent_off == 0:\n        return base_total\n    discount = (base_total * self._percent_off) // 100\n    return base_total - discount"
+    },
+    {
+      "target": "EventBus.__contains__",
+      "file": "playground/playground/events.py",
+      "status": "written",
+      "retrieved": [
+        "playground/playground/events.py::EventBus..EventBus.__contains__::11-54",
+        "playground/tests/test_events.py::EventBusContainsTests..EventBusContainsTests.test_contains_non_event_type_is_false::152-173",
+        "playground/tests/test_events.py::EventBusPublishTests..EventBusPublishTests.test_publish_non_event_type_rejected::87-115",
+        "playground/tests/test_events.py::EventBusSubscribeTests..EventBusSubscribeTests.test_len_sums_across_types::11-44",
+        "playground/tests/test_events.py::EventBusUnsubscribeTests..EventBusUnsubscribeTests.test_unsubscribe_on_unknown_type_returns_false::47-84"
+      ],
+      "attempts": 1,
+      "error": null,
+      "code": "def __contains__(self, event_type: object) -> bool:\n    \"\"\"Return whether any handlers are registered for ``event_type``.\"\"\"\n    if not isinstance(event_type, EventType):\n        return False\n    handlers = self._handlers.get(event_type)\n    return bool(handlers)"
+    },
+    {
+      "target": "Money.__bool__",
+      "file": "playground/playground/models.py",
+      "status": "written",
+      "retrieved": [
+        "playground/playground/models.py::Money.__mul__..Money.__hash__::48-80",
+        "playground/playground/models.py::Money..Money.__sub__::12-46",
+        "playground/playground/models.py::Money.__repr__..Money.__bool__::82-91",
+        "playground/tests/test_models.py::MoneyConstructionTests..MoneyConstructionTests.test_cents_is_read_only::11-38",
+        "playground/tests/test_models.py::MoneyMiscTests..MoneyMiscTests.test_bool_true_for_nonzero::156-175"
+      ],
+      "attempts": 1,
+      "error": null,
+      "code": "def __bool__(self) -> bool:\n    \"\"\"Return True when the amount is non-zero.\"\"\"\n    return self._cents != 0"
+    }
+  ],
+  "before": {
+    "total": 481,
+    "failed": 52,
+    "passed": 429,
+    "summary": "FAILED (failures=35, errors=17)",
+    "failed_tests": [
+      "test_enums.OrderStatusTests.test_cancelled_is_terminal",
+      "test_enums.OrderStatusTests.test_new_is_not_terminal",
+      "test_enums.OrderStatusTests.test_reserved_is_not_terminal",
+      "test_enums.OrderStatusTests.test_shipped_is_terminal",
+      "test_events.EventBusContainsTests.test_contains_true_with_handler",
+      "test_events.EventBusSubscribeTests.test_subscribe_registers_handler",
+      "test_inventory.InventoryLedgerContainsLenIterTests.test_contains_normalized_present",
+      "test_inventory.InventoryLedgerContainsLenIterTests.test_contains_present_even_if_zero_on_hand_after_commit",
+      "test_inventory.WarehouseTests.test_stock_report_empty",
+      "test_inventory.WarehouseTests.test_stock_report_lists_available",
+      "test_models.CustomerTests.test_can_afford_accounts_for_existing_balance",
+      "test_models.CustomerTests.test_can_afford_non_money_rejected",
+      "test_models.CustomerTests.test_can_afford_true_within_limit",
+      "test_models.CustomerTests.test_charge_exactly_to_limit_allowed",
+      "test_models.CustomerTests.test_charge_increases_balance",
+      "test_models.CustomerTests.test_charge_non_money_propagates_type_error",
+      "test_models.MoneyMiscTests.test_bool_false_for_zero",
+      "test_models.MoneyMiscTests.test_bool_true_for_nonzero",
+      "test_orders.OrderAddItemTests.test_add_after_advance_rejected",
+      "test_orders.OrderAddItemTests.test_add_appends_new_sku",
+      "test_orders.OrderAddItemTests.test_add_same_sku_merges_quantity",
+      "test_orders.OrderAdvanceTests.test_advance_from_terminal_raises",
+      "test_orders.OrderAdvanceTests.test_advance_to_same_status_raises",
+      "test_orders.OrderAdvanceTests.test_cancel_from_new",
+      "test_orders.OrderAdvanceTests.test_cancel_from_reserved",
+      "test_orders.OrderAdvanceTests.test_happy_path_to_shipped",
+      "test_orders.OrderAdvanceTests.test_illegal_advance_raises_and_keeps_status",
+      "test_orders.OrderBuilderTests.test_build_merges_duplicate_skus",
+      "test_orders.OrderBuilderTests.test_build_twice_creates_independent_orders",
+      "test_orders.OrderConstructionTests.test_initial_state",
+      "test_orders.OrderContainerTests.test_len",
+      "test_orders.OrderEqualityTests.test_repr_includes_status",
+      "test_orders.OrderLogTests.test_by_status_filters",
+      "test_orders.OrderLogTests.test_by_status_is_lazy_generator",
+      "test_orders.OrderStateMachineTests.test_call_is_alias_for_transition",
+      "test_orders.OrderStateMachineTests.test_transition_illegal_raises",
+      "test_orders.OrderStateMachineTests.test_transition_returns_target_when_legal",
+      "test_orders.OrderTotalTests.test_total_reflects_merged_quantities_for_bulk_discount",
+      "test_pricing.BulkDiscountPriceTests.test_at_threshold_applies_discount",
+      "test_pricing.BulkDiscountPriceTests.test_below_threshold_returns_base_total",
+      "test_pricing.BulkDiscountPriceTests.test_discount_uses_floor_division",
+      "test_pricing.BulkDiscountPriceTests.test_empty_items_below_threshold",
+      "test_pricing.BulkDiscountPriceTests.test_full_discount_yields_zero",
+      "test_pricing.BulkDiscountPriceTests.test_quantity_summed_across_lines",
+      "test_pricing.BulkDiscountPriceTests.test_wraps_base_with_tax",
+      "test_pricing.BulkDiscountPriceTests.test_zero_percent_returns_base_even_above_threshold",
+      "test_simulation.BuildDefaultWarehouseTests.test_returns_warehouse_with_three_skus_each_20",
+      "test_simulation.SimulationStepTests.test_cancel_path_releases_reservation",
+      "test_simulation.SimulationStepTests.test_order_line_has_unit_price_1000_and_quantity_1_to_3",
+      "test_simulation.SimulationStepTests.test_same_seed_is_reproducible",
+      "test_simulation.SimulationStepTests.test_shipped_path_publishes_and_adds_revenue",
+      "test_simulation.SimulationStepTests.test_step_returns_order_and_accounts_for_it"
+    ],
+    "per_class": {
+      "test_base.EntityTests": {
+        "passed": 12,
+        "failed": 0
+      },
+      "test_base.PricingStrategyTests": {
+        "passed": 6,
+        "failed": 0
+      },
+      "test_base.RepositoryTests": {
+        "passed": 5,
+        "failed": 0
+      },
+      "test_decorators.AuditTrailCallTests": {
+        "passed": 9,
+        "failed": 0
+      },
+      "test_decorators.AuditTrailConstructionTests": {
+        "passed": 5,
+        "failed": 0
+      },
+      "test_decorators.AuditTrailEntriesClearTests": {
+        "passed": 4,
+        "failed": 0
+      },
+      "test_enums.CategoryTests": {
+        "passed": 8,
+        "failed": 0
+      },
+      "test_enums.EventTypeTests": {
+        "passed": 2,
+        "failed": 0
+      },
+      "test_enums.OrderStatusTests": {
+        "passed": 1,
+        "failed": 4
+      },
+      "test_events.EventBusContainsTests": {
+        "passed": 3,
+        "failed": 1
+      },
+      "test_events.EventBusPublishTests": {
+        "passed": 9,
+        "failed": 0
+      },
+      "test_events.EventBusSubscribeTests": {
+        "passed": 5,
+        "failed": 1
+      },
+      "test_events.EventBusUnsubscribeTests": {
+        "passed": 5,
+        "failed": 0
+      },
+      "test_exceptions.DuplicateEntityErrorTests": {
+        "passed": 1,
+        "failed": 0
+      },
+      "test_exceptions.ExceptionHierarchyTests": {
+        "passed": 8,
+        "failed": 0
+      },
+      "test_exceptions.InvalidTransitionErrorTests": {
+        "passed": 2,
+        "failed": 0
+      },
+      "test_exceptions.OutOfStockErrorTests": {
+        "passed": 3,
+        "failed": 0
+      },
+      "test_exceptions.UnknownSKUErrorTests": {
+        "passed": 1,
+        "failed": 0
+      },
+      "test_inventory.InventoryErrorHierarchyTests": {
+        "passed": 1,
+        "failed": 0
+      },
+      "test_inventory.InventoryLedgerConstructionTests": {
+        "passed": 2,
+        "failed": 0
+      },
+      "test_inventory.InventoryLedgerContainsLenIterTests": {
+        "passed": 8,
+        "failed": 2
+      },
+      "test_inventory.InventoryLedgerReleaseCommitTests": {
+        "passed": 12,
+        "failed": 0
+      },
+      "test_inventory.InventoryLedgerReserveTests": {
+        "passed": 7,
+        "failed": 0
+      },
+      "test_inventory.InventoryLedgerStockTests": {
+        "passed": 13,
+        "failed": 0
+      },
+      "test_inventory.ReservationContextTests": {
+        "passed": 13,
+        "failed": 0
+      },
+      "test_inventory.WarehouseTests": {
+        "passed": 10,
+        "failed": 2
+      },
+      "test_models.CustomerTests": {
+        "passed": 13,
+        "failed": 6
+      },
+      "test_models.LineItemTests": {
+        "passed": 15,
+        "failed": 0
+      },
+      "test_models.MoneyArithmeticTests": {
+        "passed": 14,
+        "failed": 0
+      },
+      "test_models.MoneyComparisonTests": {
+        "passed": 17,
+        "failed": 0
+      },
+      "test_models.MoneyConstructionTests": {
+        "passed": 7,
+        "failed": 0
+      },
+      "test_models.MoneyMiscTests": {
+        "passed": 4,
+        "failed": 2
+      },
+      "test_models.ProductTests": {
+        "passed": 26,
+        "failed": 0
+      },
+      "test_orders.OrderAddItemTests": {
+        "passed": 3,
+        "failed": 3
+      },
+      "test_orders.OrderAdvanceTests": {
+        "passed": 0,
+        "failed": 6
+      },
+      "test_orders.OrderBuilderTests": {
+        "passed": 10,
+        "failed": 2
+      },
+      "test_orders.OrderConstructionTests": {
+        "passed": 5,
+        "failed": 1
+      },
+      "test_orders.OrderContainerTests": {
+        "passed": 3,
+        "failed": 1
+      },
+      "test_orders.OrderEqualityTests": {
+        "passed": 4,
+        "failed": 1
+      },
+      "test_orders.OrderLogTests": {
+        "passed": 10,
+        "failed": 2
+      },
+      "test_orders.OrderStateMachineTests": {
+        "passed": 8,
+        "failed": 3
+      },
+      "test_orders.OrderTotalTests": {
+        "passed": 2,
+        "failed": 1
+      },
+      "test_package.PackageInitTests": {
+        "passed": 6,
+        "failed": 0
+      },
+      "test_pricing.BulkDiscountConstructionTests": {
+        "passed": 10,
+        "failed": 0
+      },
+      "test_pricing.BulkDiscountPriceTests": {
+        "passed": 1,
+        "failed": 8
+      },
+      "test_pricing.FlatPricingConstructionTests": {
+        "passed": 8,
+        "failed": 0
+      },
+      "test_pricing.FlatPricingPriceTests": {
+        "passed": 7,
+        "failed": 0
+      },
+      "test_repository.InMemoryRepositoryAddTests": {
+        "passed": 6,
+        "failed": 0
+      },
+      "test_repository.InMemoryRepositoryConstructionTests": {
+        "passed": 3,
+        "failed": 0
+      },
+      "test_repository.InMemoryRepositoryContainsTests": {
+        "passed": 4,
+        "failed": 0
+      },
+      "test_repository.InMemoryRepositoryGetRemoveTests": {
+        "passed": 5,
+        "failed": 0
+      },
+      "test_repository.InMemoryRepositoryLenIterTests": {
+        "passed": 4,
+        "failed": 0
+      },
+      "test_repository.InMemoryRepositoryWithProductsTests": {
+        "passed": 2,
+        "failed": 0
+      },
+      "test_simulation.BuildDefaultWarehouseTests": {
+        "passed": 2,
+        "failed": 1
+      },
+      "test_simulation.RunSimulationTests": {
+        "passed": 6,
+        "failed": 0
+      },
+      "test_simulation.SimulationConstructionTests": {
+        "passed": 6,
+        "failed": 0
+      },
+      "test_simulation.SimulationReportTests": {
+        "passed": 12,
+        "failed": 0
+      },
+      "test_simulation.SimulationRunTests": {
+        "passed": 3,
+        "failed": 0
+      },
+      "test_simulation.SimulationStepTests": {
+        "passed": 6,
+        "failed": 5
+      },
+      "test_util.ChunkedTests": {
+        "passed": 12,
+        "failed": 0
+      },
+      "test_util.EnsurePositiveIntTests": {
+        "passed": 8,
+        "failed": 0
+      },
+      "test_util.FormatCentsTests": {
+        "passed": 9,
+        "failed": 0
+      },
+      "test_util.NormalizeSkuTests": {
+        "passed": 13,
+        "failed": 0
+      }
+    },
+    "returncode": 1
+  },
+  "after": {
+    "total": 481,
+    "failed": 10,
+    "passed": 471,
+    "summary": "FAILED (failures=1, errors=9)",
+    "failed_tests": [
+      "test_inventory.InventoryLedgerContainsLenIterTests.test_contains_malformed_string_false",
+      "test_inventory.InventoryLedgerContainsLenIterTests.test_contains_non_str_false",
+      "test_inventory.InventoryLedgerContainsLenIterTests.test_contains_present_even_if_zero_on_hand_after_commit",
+      "test_orders.OrderTotalTests.test_total_reflects_merged_quantities_for_bulk_discount",
+      "test_pricing.BulkDiscountPriceTests.test_at_threshold_applies_discount",
+      "test_pricing.BulkDiscountPriceTests.test_call_matches_price",
+      "test_pricing.BulkDiscountPriceTests.test_discount_uses_floor_division",
+      "test_pricing.BulkDiscountPriceTests.test_full_discount_yields_zero",
+      "test_pricing.BulkDiscountPriceTests.test_quantity_summed_across_lines",
+      "test_pricing.BulkDiscountPriceTests.test_wraps_base_with_tax"
+    ],
+    "per_class": {
+      "test_base.EntityTests": {
+        "passed": 12,
+        "failed": 0
+      },
+      "test_base.PricingStrategyTests": {
+        "passed": 6,
+        "failed": 0
+      },
+      "test_base.RepositoryTests": {
+        "passed": 5,
+        "failed": 0
+      },
+      "test_decorators.AuditTrailCallTests": {
+        "passed": 9,
+        "failed": 0
+      },
+      "test_decorators.AuditTrailConstructionTests": {
+        "passed": 5,
+        "failed": 0
+      },
+      "test_decorators.AuditTrailEntriesClearTests": {
+        "passed": 4,
+        "failed": 0
+      },
+      "test_enums.CategoryTests": {
+        "passed": 8,
+        "failed": 0
+      },
+      "test_enums.EventTypeTests": {
+        "passed": 2,
+        "failed": 0
+      },
+      "test_enums.OrderStatusTests": {
+        "passed": 5,
+        "failed": 0
+      },
+      "test_events.EventBusContainsTests": {
+        "passed": 4,
+        "failed": 0
+      },
+      "test_events.EventBusPublishTests": {
+        "passed": 9,
+        "failed": 0
+      },
+      "test_events.EventBusSubscribeTests": {
+        "passed": 6,
+        "failed": 0
+      },
+      "test_events.EventBusUnsubscribeTests": {
+        "passed": 5,
+        "failed": 0
+      },
+      "test_exceptions.DuplicateEntityErrorTests": {
+        "passed": 1,
+        "failed": 0
+      },
+      "test_exceptions.ExceptionHierarchyTests": {
+        "passed": 8,
+        "failed": 0
+      },
+      "test_exceptions.InvalidTransitionErrorTests": {
+        "passed": 2,
+        "failed": 0
+      },
+      "test_exceptions.OutOfStockErrorTests": {
+        "passed": 3,
+        "failed": 0
+      },
+      "test_exceptions.UnknownSKUErrorTests": {
+        "passed": 1,
+        "failed": 0
+      },
+      "test_inventory.InventoryErrorHierarchyTests": {
+        "passed": 1,
+        "failed": 0
+      },
+      "test_inventory.InventoryLedgerConstructionTests": {
+        "passed": 2,
+        "failed": 0
+      },
+      "test_inventory.InventoryLedgerContainsLenIterTests": {
+        "passed": 7,
+        "failed": 3
+      },
+      "test_inventory.InventoryLedgerReleaseCommitTests": {
+        "passed": 12,
+        "failed": 0
+      },
+      "test_inventory.InventoryLedgerReserveTests": {
+        "passed": 7,
+        "failed": 0
+      },
+      "test_inventory.InventoryLedgerStockTests": {
+        "passed": 13,
+        "failed": 0
+      },
+      "test_inventory.ReservationContextTests": {
+        "passed": 13,
+        "failed": 0
+      },
+      "test_inventory.WarehouseTests": {
+        "passed": 12,
+        "failed": 0
+      },
+      "test_models.CustomerTests": {
+        "passed": 19,
+        "failed": 0
+      },
+      "test_models.LineItemTests": {
+        "passed": 15,
+        "failed": 0
+      },
+      "test_models.MoneyArithmeticTests": {
+        "passed": 14,
+        "failed": 0
+      },
+      "test_models.MoneyComparisonTests": {
+        "passed": 17,
+        "failed": 0
+      },
+      "test_models.MoneyConstructionTests": {
+        "passed": 7,
+        "failed": 0
+      },
+      "test_models.MoneyMiscTests": {
+        "passed": 6,
+        "failed": 0
+      },
+      "test_models.ProductTests": {
+        "passed": 26,
+        "failed": 0
+      },
+      "test_orders.OrderAddItemTests": {
+        "passed": 6,
+        "failed": 0
+      },
+      "test_orders.OrderAdvanceTests": {
+        "passed": 6,
+        "failed": 0
+      },
+      "test_orders.OrderBuilderTests": {
+        "passed": 12,
+        "failed": 0
+      },
+      "test_orders.OrderConstructionTests": {
+        "passed": 6,
+        "failed": 0
+      },
+      "test_orders.OrderContainerTests": {
+        "passed": 4,
+        "failed": 0
+      },
+      "test_orders.OrderEqualityTests": {
+        "passed": 5,
+        "failed": 0
+      },
+      "test_orders.OrderLogTests": {
+        "passed": 12,
+        "failed": 0
+      },
+      "test_orders.OrderStateMachineTests": {
+        "passed": 11,
+        "failed": 0
+      },
+      "test_orders.OrderTotalTests": {
+        "passed": 2,
+        "failed": 1
+      },
+      "test_package.PackageInitTests": {
+        "passed": 6,
+        "failed": 0
+      },
+      "test_pricing.BulkDiscountConstructionTests": {
+        "passed": 10,
+        "failed": 0
+      },
+      "test_pricing.BulkDiscountPriceTests": {
+        "passed": 3,
+        "failed": 6
+      },
+      "test_pricing.FlatPricingConstructionTests": {
+        "passed": 8,
+        "failed": 0
+      },
+      "test_pricing.FlatPricingPriceTests": {
+        "passed": 7,
+        "failed": 0
+      },
+      "test_repository.InMemoryRepositoryAddTests": {
+        "passed": 6,
+        "failed": 0
+      },
+      "test_repository.InMemoryRepositoryConstructionTests": {
+        "passed": 3,
+        "failed": 0
+      },
+      "test_repository.InMemoryRepositoryContainsTests": {
+        "passed": 4,
+        "failed": 0
+      },
+      "test_repository.InMemoryRepositoryGetRemoveTests": {
+        "passed": 5,
+        "failed": 0
+      },
+      "test_repository.InMemoryRepositoryLenIterTests": {
+        "passed": 4,
+        "failed": 0
+      },
+      "test_repository.InMemoryRepositoryWithProductsTests": {
+        "passed": 2,
+        "failed": 0
+      },
+      "test_simulation.BuildDefaultWarehouseTests": {
+        "passed": 3,
+        "failed": 0
+      },
+      "test_simulation.RunSimulationTests": {
+        "passed": 6,
+        "failed": 0
+      },
+      "test_simulation.SimulationConstructionTests": {
+        "passed": 6,
+        "failed": 0
+      },
+      "test_simulation.SimulationReportTests": {
+        "passed": 12,
+        "failed": 0
+      },
+      "test_simulation.SimulationRunTests": {
+        "passed": 3,
+        "failed": 0
+      },
+      "test_simulation.SimulationStepTests": {
+        "passed": 11,
+        "failed": 0
+      },
+      "test_util.ChunkedTests": {
+        "passed": 12,
+        "failed": 0
+      },
+      "test_util.EnsurePositiveIntTests": {
+        "passed": 8,
+        "failed": 0
+      },
+      "test_util.FormatCentsTests": {
+        "passed": 9,
+        "failed": 0
+      },
+      "test_util.NormalizeSkuTests": {
+        "passed": 13,
+        "failed": 0
+      }
+    },
+    "returncode": 1
+  }
+}
