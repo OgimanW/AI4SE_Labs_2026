@@ -1,0 +1,21 @@
+# Assessment by mimo-2.6-flash
+
+# Week 03 Prompting
+- Awarded: 2.5b out of 5b
+- Commentary: The submission contains genuine experimental work: three framework prompt files, a 155-question text-to-SQL run per prompt with session and timing metadata, and a well-engineered macro-F1 metric implementation with per-question results. However, the Task 1 rationale is very thin and two of the three prompt files are near-identical, Task 2 omits the explicitly required visualization and never identifies the model, and the Task 4 report exists only as a PDF whose text could not be extracted, leaving its analysis unverifiable. Task 3 is the clear strength of the submission and earns full credit.
+
+## Task 1
+- Awarded: 0.5b   (max 1b)
+- Commentary: Three suitable frameworks were chosen (CO-STAR, RTF, RACE — none of them ROSES or zero-shot), each with a formulated prompt file, and OUTPUT.md gives a reason for each plus the shared source (https://frompting.com/frameworks), so both required output items exist and the prompts are detailed (schema, rules, few-shot example, strict CSV format). Two deficiencies are substantive: RTF_Prompt.txt and RACE_Prompt.txt are ~95% verbatim identical (same "Role/Task" structure and identical rule and output sections), so only two genuinely distinct formulations were delivered and the RACE structure (Action, Context, Expectation) is not actually applied; and the report never states what is expected from each prompt, which the task explicitly asked for, presenting only a few informal sentences per framework.
+
+## Task 2
+- Awarded: 0.5b   (max 1b)
+- Commentary: All required runs were executed in separate sessions (distinct copilot CLI session IDs confirm the hint was followed), complete 155-row prediction CSVs are stored for CO-STAR, RTF and RACE, inference effort is measured (3m05s/32 steps CO-STAR, 10m50s/49 steps RTF, 3m45s/21 steps RACE), accuracies were computed with an execution-based evaluator (27.74% / 17.42% / 27.74%), and Output.txt contains a short textual comparison noting RACE and CO-STAR outperform RTF despite RTF taking roughly 3x longer. Credit is held at half because the explicitly required "nice visualisation" is completely absent from the repository, the promised metadata never names the model (only prompt labels, session IDs, timestamps and repo/branch info), and the comparative report is six lines with no analysis of where the prompts fail differently.
+
+## Task 3
+- Awarded: 1b   (max 1b)
+- Commentary: Macro row-level F1 over result rows treated as multisets is proposed and convincingly defended as fitting an execution-based text-to-SQL task (order-insensitive, multiplicity-aware, gives partial credit where exact match gives none), and the report explicitly argues it complements rather than replaces the all-or-nothing metric from Task 2. calculate_f1.py is a clean, robust implementation (DB rebuild from schema, edge cases for empty/empty, empty/non-empty, SQL errors, query-only connection) that computes summary and per-question values for all three Task 2 prediction files, and the report presents and interprets the comparison honestly — including that zero partial-overlap cases occurred, so macro F1 collapsed onto exact accuracy (0.2774/0.1742/0.2774). Minor blemishes: the script loads predictions from Task_2/data/OUTPUT while the CSVs were committed under Task_2/OUTPUT, so the documented `python calculate_f1.py` re-run fails as submitted, and F1 is a sensible but fairly conventional rather than inventive choice.
+
+## Task 4
+- Awarded: 0.5b   (max 2b)
+- Commentary: The only content deliverable for this task is Task_4_Report.pdf; its text could not be extracted (streams are compressed and PDF input is unsupported by this grader), so none of the required elements — detailed analysis of the metric values, result tables and graphs, a statistical significance test of prompt differences, or discussion of prompts/model/coding-agent as factors — could be verified from any readable text in the repository. Baseline credit is awarded for the submitted report artifact, and none of the analytical requirements could be confirmed or refuted.
